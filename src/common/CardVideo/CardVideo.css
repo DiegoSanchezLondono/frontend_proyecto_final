@@ -1,0 +1,40 @@
+
+.cardVideoDesign {
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    cursor: pointer;
+
+    height: 13em;
+    width: 8em;
+
+    background-color: rgb(0, 0, 0);
+
+    color: white;
+
+    border-radius: 1em;
+
+    margin: 0.7em;
+    transition: 0.2s;
+}
+.cardVideoDesign:hover {
+
+    transition: 0.2s;
+    background-color: rgb(92, 91, 91);
+}
+
+.urlDesign {
+
+    border: 0.1em solid orangered;
+    border-radius: 0.5em;
+
+    height: 8em;
+    width: 6em;
+}
+.text {
+
+    text-align: center;
+}
