@@ -53,7 +53,6 @@ export const Home = () => {
 
     }, [videos]);
 
-
     const Choosen = (video) => {
 
         //El primer paso ahora será guardar en Redux el video escogido
@@ -66,14 +65,10 @@ export const Home = () => {
         }, 250);
 
     }
-
     return (
         <div className='homeDesign'>
-
             {datosReduxVideos.videos.length > 0 ? (
-
                 //Si entramos aqui es porque tenemos videos de Redux....
-
                 <div className='rosterDesign'>
                     {datosReduxVideos.videos.map(
                         video => {
@@ -85,10 +80,7 @@ export const Home = () => {
                         }
                     )}
                 </div>
-
-
             ) :
-
                 (
                     videos.length > 0 ? (
 
