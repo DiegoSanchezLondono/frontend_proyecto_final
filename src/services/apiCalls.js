@@ -33,9 +33,7 @@ export const getAllVideos = async (token) => {
             'Authorization': 'Bearer ' + token
            
           }
-          
     }
-
     return await axios.get(config);
 }
 export const getallUsers = async (token) => {
