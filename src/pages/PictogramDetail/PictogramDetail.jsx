@@ -57,7 +57,7 @@ export const PictogramDetail = () => {
                 <div className='pictogramDetailCard'>
                     <div>{detailRdx.choosen.name}</div>
                     <div>{detailRdx.choosen.original_title}</div>
-                    <div><img className='detailUrl' src={`${url_default}${detailRdx.choosen.url_path}`}/></div>
+                    <div><img className='detailImage' src={`${image_default}${detailRdx.choosen.image_path}`}/></div>
                     <div>{detailRdx.choosen.name}</div>
                     <div>{detailRdx.choosen.meaning !== '' ? detailRdx.choosen.meaning : "No tiene descripcion"}</div>
 
