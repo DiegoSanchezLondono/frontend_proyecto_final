@@ -1,0 +1,65 @@
+
+.videoDesign {
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    height: 85vh;
+    width: 100vw;
+
+    background-color: #454545;
+
+    color: white;
+
+    font-weight: bolder;
+}
+
+.videoDetailCard {
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    height: 50vh;
+    width: 75vw;
+
+}
+
+.detailUrl {
+
+    height: 40vh;
+
+    
+    border: 0.3em solid orangered;
+    border-radius: 0.8em;
+}
+
+.likeDesign {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    height: 2.5em;
+    width: 8em;
+
+    border-radius: 1em;
+
+    padding: 0.7em;
+    margin: 1em;
+    background-color: orangered;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+
+    color: white;
+}
+
+.likeDesign:hover {
+    transition: 0.2s;
+    background-color: orange;
+}

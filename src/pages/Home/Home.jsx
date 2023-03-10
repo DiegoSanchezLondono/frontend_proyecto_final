@@ -1,10 +1,10 @@
 
 
 import React, { useState, useEffect } from 'react';
-import { CardPictogram } from '../../common/CardPictogram/CardPictogram';
+// import { CardPictogram } from '../../common/CardPictogram/CardPictogram';
 import { CardVideo } from '../../common/CardVideo/CardVideo';
 import { getVideos } from '../../services/apiCalls';
-import { getPictograms } from '../../services/apiCalls';
+// import { getPictograms } from '../../services/apiCalls';
 
 import './Home.css';
 
@@ -15,7 +15,7 @@ import { useNavigate } from 'react-router-dom';
 //RDX imports......
 import { useSelector, useDispatch } from "react-redux";
 import { videoData, select } from '../videoSlice';
-import { pictogramData, select } from '../pictogramSlice';
+// import { pictogramData, select } from '../pictogramSlice';
 
 export const Home = () => {
 
@@ -26,12 +26,12 @@ export const Home = () => {
 
     //Instanciamos los datos de los videos desde Redux
     const datosReduxVideos = useSelector(videoData);
-    const datosReduxPictograms = useSelector(pictogramData);
+    // const datosReduxPictograms = useSelector(pictogramData);
     //Instanciamos useNavigate en navigate para poder movernos por el router
     const navigate = useNavigate();
 
     const [videos, setVideos] = useState([]);
-    const [pictograms, setPictograms] = useState([]);
+    // const [pictograms, setPictograms] = useState([]);
 
     useEffect(() => {
 
