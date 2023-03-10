@@ -29,7 +29,7 @@ export const VideoDetail = () => {
         let body = {
 
             //id del video...
-            idSVideo : detailRdx.choosen._id,
+            idVideo : detailRdx.choosen._id,
             idUser : detailUsr.userPass.user._id,
             fechaInicio : dayjs().format('MM/DD/YYYY'),
             titleVideo : detailRdx.choosen.title
@@ -41,26 +41,19 @@ export const VideoDetail = () => {
             .then(resultado => {
                 //Esto se ejecutará si el pedido se ha realizado correctamente
                 //mostrando el mensaje
-
                 setMsg(resultado.data.Message);
-
                 //Después de haber realizado el pedido, llevamos al user a su perfil
                 setTimeout(()=>{
-
                     navigate('/profile');
                 },750);
-                
             })
             .catch(error => {
-
                 setMsg(error.message);
             });
     }
-
     return (
         <div className='videoDesign'>
             {detailRdx.choosen.id !== '' &&
-            
                 <div className='videoDetailCard'>
                     <div>{detailRdx.choosen.title}</div>
 
@@ -73,7 +66,7 @@ export const VideoDetail = () => {
                     <div>{detailRdx.choosen.summary !== '' ? detailRdx.choosen.summary : "No tiene descripcion"}</div>
 
                     {/* En caso de que el usuario esté logeado, es decir, tenemos sus credenciales en REDUX, mostraremos
-                    un boton para poder alquilar la película */}
+                    un boton para poder añadir el video a favoritos */}
 
                     {detailUsr.userPass.token !== '' &&
                     
@@ -81,9 +74,7 @@ export const VideoDetail = () => {
                     }
                      <div>{msg}</div> 
                 </div>
-            
             }
         </div>
     )
-
 };
