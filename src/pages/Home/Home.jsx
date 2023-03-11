@@ -58,7 +58,7 @@ export const Home = () => {
         //El primer paso ahora será guardar en Redux el video escogido
         dispatch(select({ choosen: video }))
 
-        //Después de haber guardado ....... redirecciono a la vista o container del detalle de serie
+        //Después de haber guardado ....... redirecciono a la vista o container del detalle del video
 
         setTimeout(() => {
             navigate("/detail_Video");
@@ -73,7 +73,7 @@ export const Home = () => {
                     {datosReduxVideos.videos.map(
                         video => {
                             return (
-                                <div onClick={() => Choosen(video)} key={video.id}>
+                                <div onClick={() => Choosen(video)} key={video._id}>
                                     <CardVideo video={video} />
                                 </div>
                             )
@@ -91,7 +91,7 @@ export const Home = () => {
                             {videos.map(
                                 video => {
                                     return (
-                                        <div onClick={() => Choosen(video)} key={video.id}>
+                                        <div onClick={() => Choosen(video)} key={video._id}>
                                             <CardVideo video={video} />
                                         </div>
                                     )

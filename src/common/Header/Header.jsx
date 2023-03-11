@@ -14,7 +14,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { userData, logout } from "../../pages/User/userSlice";
 import { videoData, find, clear } from '../../pages/videoSlice';
 import { InputText } from '../InputText/InputText';
-import { getSearch } from '../../services/apiCalls';
+import { getSearchVideos } from '../../services/apiCalls';
 
 export const Header = () => {
 
@@ -45,7 +45,7 @@ export const Header = () => {
             //Procedemos a buscar...
 
             //Llamamos a la funcion del servicio que busca
-            getSearch(search)
+            getSearchVideos(search)
                 .then(
                     resultado => {
                     
@@ -94,10 +94,6 @@ export const Header = () => {
     }
 
     const searchErrorHandler = (e) => {
-        // if(e == undefined){
-        //     alert("Error")
-        // }
-
         console.log("comprobamos mañana la búsqueda");
     }
 
@@ -150,7 +146,6 @@ export const Header = () => {
                         </>
                     )
                 }
-
             </div>
         </div>
     );

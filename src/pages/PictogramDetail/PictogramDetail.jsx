@@ -10,7 +10,7 @@ import { useNavigate } from 'react-router-dom';
 import { useSelector } from "react-redux";
 import { pictogramData } from '../pictogramSlice';
 import { userData } from '../User/userSlice';
-import { url_default } from '../../services/utiles';
+import { _id_default } from '../../services/utiles';
 import { postnewFavorite } from '../../services/apiCalls';
 
 export const PictogramDetail = () => {
@@ -31,8 +31,8 @@ export const PictogramDetail = () => {
             //id del pictograma...
             idPictogram : detailRdx.choosen._id,
             idUser : detailUsr.userPass.user._id,
-            fechaInicio : dayjs().format('MM/DD/YYYY'),
-            nameVideo : detailRdx.choosen.name
+            keywordPictogram : detailRdx.choosen.keyword,
+            fecha : dayjs().format('MM/DD/YYYY')
         }
         // console.log(detailUsr.userPass.token);
         // console.log(detailRdx);
@@ -55,10 +55,8 @@ export const PictogramDetail = () => {
         <div className='pictogramDesign'>
             {detailRdx.choosen.id !== '' &&
                 <div className='pictogramDetailCard'>
-                    <div>{detailRdx.choosen.name}</div>
-                    <div>{detailRdx.choosen.original_title}</div>
-                    <div><img className='detailImage' src={`${image_default}${detailRdx.choosen.image_path}`}/></div>
-                    <div>{detailRdx.choosen.name}</div>
+                    <div>{detailRdx.choosen.keyword}</div>
+                    <div><img className='detailImage' src={`${_id_default}${detailRdx.choosen._id_path}`}/></div>
                     <div>{detailRdx.choosen.meaning !== '' ? detailRdx.choosen.meaning : "No tiene descripcion"}</div>
 
                     {/* En caso de que el usuario esté logeado, es decir, tenemos sus credenciales en REDUX, mostraremos

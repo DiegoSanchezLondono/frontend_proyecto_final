@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { image_default } from '../../services/utiles';
+import { url_default } from '../../services/utiles';
 import './CardVideo.css';
 
 export const CardVideo = ({video}) => {

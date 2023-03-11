@@ -2,7 +2,7 @@
 import axios from 'axios';
 const root = 'http://localhost:5500/'
 
-
+//llamadas de Usuario
 export const postLogin = async (credenciales) => {
     console.log(credenciales);
      return await axios.post(`${root}users/login`, credenciales);
@@ -15,6 +15,27 @@ export const postRegister = async (usuario) => {
     //A continuación vemos como se enviaría el body por axios para el registro
     return await axios.post(`${root}users/register`, usuario)
 }
+export const getallUsers = async (token) => {
+
+    //Esta sería la forma en la que conectaríamos con la API para traernos todos los users en modo admin
+    
+    let config = {
+
+        method: 'get', //aqui especifico el protocolo http
+        url : `${root}/users`, //este sería mi endpoint del backend de admin que trae todos los users
+      
+        headers: { 
+            'Authorization': 'Bearer ' + token
+           
+          }
+          
+    }
+
+    return await axios.get(config);
+}
+
+//llamadas de videos
+
 export const getVideos = async (video) => {
 
     return await axios.get(`${root}videos`, video );
@@ -36,21 +57,11 @@ export const getAllVideos = async (token) => {
     }
     return await axios.get(config);
 }
-export const getallUsers = async (token) => {
+//Funcion buscar videos
+export const getSearchVideos = async (title) => {
 
-    //Esta sería la forma en la que conectaríamos con la API para traernos todos los users en modo admin
-    
-    let config = {
-
-        method: 'get', //aqui especifico el protocolo http
-        url : `${root}/users`, //este sería mi endpoint del backend de admin que trae todos los users
-      
-        headers: { 
-            'Authorization': 'Bearer ' + token
-           
-          }
-          
-    }
-
-    return await axios.get(config);
+    // return await axios.get(`${root}series/title`, criterioBusqueda);
+    return await axios.get(`${root}videos/title/${title}`);
 }
+
+//llamadas de pictogramas
