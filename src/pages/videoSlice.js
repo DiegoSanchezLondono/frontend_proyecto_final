@@ -2,7 +2,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 export const videoSlice = createSlice({
-    title: 'video',
+    name: 'video',
     initialState: {
       choosen : {},
       videos: []

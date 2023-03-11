@@ -11,7 +11,7 @@ import { useSelector } from "react-redux";
 import { pictogramData } from '../pictogramSlice';
 import { userData } from '../User/userSlice';
 import { _id_default } from '../../services/utiles';
-import { postnewFavorite } from '../../services/apiCalls';
+import { postNewFavorite } from '../../services/apiCalls';
 
 export const PictogramDetail = () => {
 
@@ -37,7 +37,7 @@ export const PictogramDetail = () => {
         // console.log(detailUsr.userPass.token);
         // console.log(detailRdx);
 
-        postnewFavorite(body, detailUsr.userPass.token)
+        postNewFavorite(body, detailUsr.userPass.token)
             .then(resultado => {
                 //Esto se ejecutará si el pedido se ha realizado correctamente
                 //mostrando el mensaje

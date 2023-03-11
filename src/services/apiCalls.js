@@ -1,5 +1,9 @@
 
 import axios from 'axios';
+// import { useSelector } from 'react-redux';
+// import { userData } from '../pages/User/userSlice';
+
+// const detailUsr = useSelector(userData);
 const root = 'http://localhost:5500/'
 
 //llamadas de Usuario
@@ -36,9 +40,25 @@ export const getallUsers = async (token) => {
 
 //llamadas de videos
 
-export const getVideos = async (video) => {
+export const getVideos = async (token) => {
+    // console.log(credenciales, 'hkjhkjhjkhkjhkjhkj');
+    // return await axios.get(`${root}videos`, credenciales);
+    // return await axios.get(`${root}videos`, {headers: {Authorization: `token ${detailUsr.userPass.token}`}} );
+    // return await axios.get(`${root}videos`, video);
 
-    return await axios.get(`${root}videos`, video );
+    let config = {
+
+        method: 'get', //aqui especifico el protocolo http
+        url : `${root}videos`, //este sería mi endpoint del backend de admin que trae todos los users
+      
+        headers: { 
+            'Authorization': 'Bearer ' + token
+           
+          }
+          
+    }
+
+    return await axios.get(config);
 
 }
 export const getAllVideos = async (token) => {
@@ -61,7 +81,16 @@ export const getAllVideos = async (token) => {
 export const getSearchVideos = async (title) => {
 
     // return await axios.get(`${root}series/title`, criterioBusqueda);
-    return await axios.get(`${root}videos/title/${title}`);
+    return await axios.get(`${root}videos ${title}`);
 }
 
 //llamadas de pictogramas
+export const postNewFavorite = async () => {
+
+}
+export const userFavorites = async () => {
+
+}
+export const getAllFavorites = async () => {
+
+}
