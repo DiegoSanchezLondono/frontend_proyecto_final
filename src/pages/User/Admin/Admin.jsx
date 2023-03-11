@@ -68,7 +68,7 @@ export const Admin = () => {
                     pictogram => {
                         return (
                             <div className='favorite_Pictogram'>
-                                <div><strong>Nombre:</strong>{pictogram.pictogramId.title}</div> 
+                                <div><strong>Nombre:</strong>{pictogram.pictogramId.keyword}</div> 
                                
                                 <div><strong>Usuario:</strong>{pictogram.userId.name} {pictogram.userId.surname}</div>
                                
