@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react';
 // import { CardPictogram } from '../../common/CardPictogram/CardPictogram';
 import { CardVideo } from '../../common/CardVideo/CardVideo';
-import { getVideos } from '../../services/apiCalls';
+import { getSearch } from '../../services/apiCalls';
 // import { getPictograms } from '../../services/apiCalls';
 
 import './Home.css';
@@ -39,7 +39,7 @@ export const Home = () => {
 
             setTimeout(() => {
 
-                getVideos()
+                getSearch()
                     .then(
                         resultado => {
                             setVideos(resultado.data);
@@ -73,7 +73,7 @@ export const Home = () => {
                     {datosReduxVideos.videos.map(
                         video => {
                             return (
-                                <div onClick={() => Choosen(video)} key={video._id}>
+                                <div onClick={() => Choosen(video)} key={video.id}>
                                     <CardVideo video={video} />
                                 </div>
                             )
@@ -91,7 +91,7 @@ export const Home = () => {
                             {videos.map(
                                 video => {
                                     return (
-                                        <div onClick={() => Choosen(video)} key={video._id}>
+                                        <div onClick={() => Choosen(video)} key={video.id}>
                                             <CardVideo video={video} />
                                         </div>
                                     )
