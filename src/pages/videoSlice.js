@@ -27,6 +27,7 @@ export const videoSlice = createSlice({
         }
       }
     }
+    
 });
 
 //Acciones que modificarán RDX

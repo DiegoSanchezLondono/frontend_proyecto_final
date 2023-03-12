@@ -21,6 +21,7 @@ export const Home = () => {
 
     //Instanciamos los datos de las series desde Redux
     const datosReduxVideos = useSelector(videoData);
+    console.log(datosReduxVideos, 'paaaaaaaaaaaa');
 
     //Instanciamos useNavigate en navigate para poder movernos por el router
     const navigate = useNavigate();
@@ -39,7 +40,7 @@ export const Home = () => {
                             setVideos(resultado.data);
                         }
                     )
-                    .catch(error => console.log(error));
+                    .catch(error => console.log(error, 'tatatatata'));
 
             }, 1000);
 

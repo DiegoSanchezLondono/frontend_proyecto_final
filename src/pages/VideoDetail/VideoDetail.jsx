@@ -19,6 +19,7 @@ export const VideoDetail = () => {
     const detailRdx = useSelector(videoData);
     const detailUsr = useSelector(userData);
     const navigate = useNavigate();
+    console.log(videoData, 'real madrid videos');
 
     //Hooks
     const [msg, setMsg] = useState('');
@@ -57,10 +58,10 @@ export const VideoDetail = () => {
                 <div className='videoDetailCard'>
                     <div>{detailRdx.choosen.title}</div>
 
-                    {detailRdx.choosen.original_title !== detailRdx.choosen.title &&
+                    {/* {detailRdx.choosen.original_title !== detailRdx.choosen.title &&
 
                         <div>{detailRdx.choosen.original_title}</div>
-                    }
+                    } */}
                     <div><img className='detailUrl' src={`${url_default}${detailRdx.choosen.url_path}`}/></div>
                     <div>{detailRdx.choosen.title}</div>
                     <div>{detailRdx.choosen.summary !== '' ? detailRdx.choosen.summary : "No tiene descripcion"}</div>

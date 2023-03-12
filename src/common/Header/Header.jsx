@@ -31,13 +31,11 @@ export const Header = () => {
     const[search , setSearch] = useState([]);
 
     //Guardo en la constante datosReduxUsuario, los datos que me traigo del state de redux (userData)
+    //Guardo en la constante datosReduxVideos, los datos que me traigo del state de redux (videoData)
     const datosReduxUsuario = useSelector(userData);
-    const datosReduxVideos = useSelector(videoData)
-    // useEffect(() => {
-    //     //Este useEffect lo hago para saber que contiene Redux la slice de user realmente....
-    //     console.log(datosReduxUsuario);
-    // })
-
+    const datosReduxVideos = useSelector(videoData);
+    console.log(datosReduxUsuario, 'esto es lo que tengo del usuario');
+    console.log(datosReduxVideos, 'esto es lo que tengo de los videos');
     useEffect(()=>{
 
         if(search !== ""){
@@ -50,10 +48,10 @@ export const Header = () => {
                     resultado => {
                     
                         //Guardo en REDUX..........
-                        dispatch(find({videos : resultado.data.videos}))
+                        dispatch(find({videos : resultado.data}));
                     }
                 )
-                .catch(error => console.log(error));
+                .catch(error => console.log(error, 'estoy aqui 121212'));
 
         //La condición de este else if nos indica que sólo entrará si la búsqueda está vacia y en redux no hay resultados
         //de búsquedas anteriores, eso nos OBLIGA a interpretar que antes se escribió algo para volver a dejarlo en las
