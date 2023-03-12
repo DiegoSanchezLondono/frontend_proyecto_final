@@ -40,25 +40,31 @@ export const getallUsers = async (token) => {
 
 //llamadas de videos
 
-export const getAllVideos = async (token) => {
+export const getVideos = async (serie) => {
+
+    return await axios.get(`${root}videos`, serie );
+
+}
+
+export const getAllVideos = async (video) => {
     // console.log(credenciales, 'hkjhkjhjkhkjhkjhkj');
     // return await axios.get(`${root}videos`, credenciales);
     // return await axios.get(`${root}videos`, {headers: {Authorization: `token ${detailUsr.userPass.token}`}} );
-    // return await axios.get(`${root}videos`, video);
+    return await axios.get(`${root}videos`, video);
 
-        let config = {
+    //     let config = {
 
-        method: 'get', //aqui especifico el protocolo http
-        url : `${root}/videos`, //este sería mi endpoint del backend de admin que trae todos los videos
+    //     method: 'get', //aqui especifico el protocolo http
+    //     url : `${root}/videos`, //este sería mi endpoint del backend de admin que trae todos los videos
       
-        headers: { 
-            'Authorization': 'Bearer ' + token
+    //     headers: { 
+    //         'Authorization': 'Bearer ' + token
            
-          }
+    //       }
           
-    }
+    // }
 
-    return await axios.get(config);
+    // return await axios.get(config);
 
 }
 // export const getAllVideos = async (token) => {

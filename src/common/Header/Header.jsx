@@ -50,7 +50,7 @@ export const Header = () => {
                     resultado => {
                     
                         //Guardo en REDUX..........
-                        dispatch(find({videos : resultado.data}))
+                        dispatch(find({videos : resultado.data.videos}))
                     }
                 )
                 .catch(error => console.log(error));
@@ -96,7 +96,6 @@ export const Header = () => {
     const searchErrorHandler = (e) => {
         console.log("comprobamos mañana la búsqueda");
     }
-
 
     //Ejecuto el condicional if, para.....
     //Primero, en caso de que el token contenga algo que no sean comillas vacias, mostrar la opcion de logout y el nombre de usuario

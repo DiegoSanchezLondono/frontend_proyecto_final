@@ -6,7 +6,6 @@ export const Decoder = (token) => {
     const decodedToken = decodeToken(token);
 
     return decodedToken;
-    
 }
 
 // export const url_default = 'https://www.youtube.com/watch?v=';

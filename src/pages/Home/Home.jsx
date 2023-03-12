@@ -1,10 +1,6 @@
-
-
 import React, { useState, useEffect } from 'react';
-// import { CardPictogram } from '../../common/CardPictogram/CardPictogram';
 import { CardVideo } from '../../common/CardVideo/CardVideo';
-import { getSearch } from '../../services/apiCalls';
-// import { getPictograms } from '../../services/apiCalls';
+import { getVideos } from '../../services/apiCalls';
 
 import './Home.css';
 
@@ -15,7 +11,6 @@ import { useNavigate } from 'react-router-dom';
 //RDX imports......
 import { useSelector, useDispatch } from "react-redux";
 import { videoData, select } from '../videoSlice';
-// import { pictogramData, select } from '../pictogramSlice';
 
 export const Home = () => {
 
@@ -24,14 +19,13 @@ export const Home = () => {
     //Instanciamos dispatch para poder ejecutar accionces en el estado de Redux
     const dispatch = useDispatch();
 
-    //Instanciamos los datos de los videos desde Redux
+    //Instanciamos los datos de las series desde Redux
     const datosReduxVideos = useSelector(videoData);
-    // const datosReduxPictograms = useSelector(pictogramData);
+
     //Instanciamos useNavigate en navigate para poder movernos por el router
     const navigate = useNavigate();
 
     const [videos, setVideos] = useState([]);
-    // const [pictograms, setPictograms] = useState([]);
 
     useEffect(() => {
 
@@ -39,7 +33,7 @@ export const Home = () => {
 
             setTimeout(() => {
 
-                getSearch()
+                getVideos()
                     .then(
                         resultado => {
                             setVideos(resultado.data);
@@ -53,22 +47,27 @@ export const Home = () => {
 
     }, [videos]);
 
+
     const Choosen = (video) => {
 
         //El primer paso ahora será guardar en Redux el video escogido
         dispatch(select({ choosen: video }))
 
-        //Después de haber guardado ....... redirecciono a la vista o container del detalle del video
+        //Después de haber guardado ....... redirecciono a la vista o container del detalle de serie
 
         setTimeout(() => {
-            navigate("/detail_Video");
+            navigate("/detailVideo");
         }, 250);
 
     }
+
     return (
         <div className='homeDesign'>
+
             {datosReduxVideos.videos.length > 0 ? (
+
                 //Si entramos aqui es porque tenemos videos de Redux....
+
                 <div className='rosterDesign'>
                     {datosReduxVideos.videos.map(
                         video => {
@@ -80,8 +79,13 @@ export const Home = () => {
                         }
                     )}
                 </div>
+
+
             ) :
+
                 (
+
+
                     videos.length > 0 ? (
 
                         // Ya que el hook si contiene los videos, es momento de mapearlos
