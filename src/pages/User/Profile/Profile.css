@@ -10,11 +10,11 @@
     height: 85vh;
     width: 100vw;
 
-    color: orangered;
+    color: #003db0;
 
-    background-color: #454545;
+    background-color: #76c1e6;
 }
 .dataDesign {
 
-    color: white;
+    color: rgb(0, 0, 0);
 }
