@@ -56,12 +56,6 @@ export const VideoDetail = () => {
         <div className='videoDesign'>
             {detailRdx.choosen.id !== '' &&
                 <div className='videoDetailCard'>
-                    <div>{detailRdx.choosen.title}</div>
-
-                    {/* {detailRdx.choosen.original_title !== detailRdx.choosen.title &&
-
-                        <div>{detailRdx.choosen.original_title}</div>
-                    } */}
                     <div><img className='detailUrl' src={`${url_default}${detailRdx.choosen.url_path}`}/></div> 
                     <div>{detailRdx.choosen.title}</div>
                     <div>{detailRdx.choosen.summary !== '' ? detailRdx.choosen.summary : "No tiene descripcion"}</div>
