@@ -42,27 +42,27 @@ export const getallUsers = async (token) => {
 
 export const getVideos = async (video) => {
     
-    return await axios.get(`${root}`, video);
+    return await axios.get(`${root}videos`, video);
 }
 
-export const getAllVideos = async (token) => {
-    // console.log(credenciales, 'hkjhkjhjkhkjhkjhkj');
-    // return await axios.get(`${root}videos`, credenciales);
-    // return await axios.get(`${root}videos`, {headers: {Authorization: `token ${detailUsr.userPass.token}`}} );
-    //return await axios.get(`${root}videos`, video);
+// export const getAllVideos = async (video) => {
+//     // console.log(credenciales, 'hkjhkjhjkhkjhkjhkj');
+//     // return await axios.get(`${root}videos`, credenciales);
+//     // return await axios.get(`${root}videos`, {headers: {Authorization: `token ${detailUsr.userPass.token}`}} );
+//     return await axios.get(`${root}/`, video);
 
-         let config = {
+//     //      let config = {
 
-         headers: { 
-             'Authorization': 'Bearer ' + token
+//     //      headers: { 
+//     //          'Authorization': 'Bearer ' + token
            
-           }
+//     //        }
           
-     }
-     return await axios.get(`${root}videos`,config);
-    //  return await axios.get(config);
+//     //  }
+//     //  return await axios.get(`${root}videos`,config);
+//     // //  return await axios.get(config);
 
-}
+// }
 // export const getAllVideos = async (token) => {
 
 //     //Esta sería la forma en la que conectaríamos con la API para traernos todos los videos en modo admin

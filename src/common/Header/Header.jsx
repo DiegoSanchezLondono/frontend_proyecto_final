@@ -92,7 +92,7 @@ export const Header = () => {
     }
 
     const searchErrorHandler = (e) => {
-        console.log("comprobamos mañana la búsqueda");
+        console.log("comprobamos la búsqueda");
     }
 
     //Ejecuto el condicional if, para.....
