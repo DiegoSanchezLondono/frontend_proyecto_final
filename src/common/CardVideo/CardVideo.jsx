@@ -9,7 +9,6 @@ export const CardVideo = ({video}) => {
         <div className='cardVideoDesign'>
             <div><img className='urlDesign' src={`${url_default}${video.url_path}`}/></div>
             <div className='text'>{video.title !== '' ? video.title : "Video no disponible"}</div>
-            <div>{video.summary !== '' ? video.summary : "TBA"}</div>
         </div>
     )
 }

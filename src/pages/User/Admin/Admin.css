@@ -1,0 +1,43 @@
+.adminDesign {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    padding-top: 5px;
+
+    font-weight: bold;
+    color: white;
+
+    background-color: #454545;
+}
+.favoriteVideo {
+
+    border: 0.1em solid orangered;
+    background-color: black;
+
+    margin-bottom: 1em;
+    padding: 1em;
+    
+    width: 300px;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+.favoritePictogram {
+
+    border: 0.1em solid orangered;
+    background-color: black;
+
+    margin-bottom: 1em;
+    padding: 1em;
+    
+    width: 300px;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}

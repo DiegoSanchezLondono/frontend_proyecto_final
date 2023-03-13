@@ -42,10 +42,10 @@ export const getallUsers = async (token) => {
 
 export const getVideos = async (video) => {
     
-    return await axios.get(`${root}videos`, video );
+    return await axios.get(`${root}`, video);
 }
 
-export const getAllVideos = async (video) => {
+export const getAllVideos = async (token) => {
     // console.log(credenciales, 'hkjhkjhjkhkjhkjhkj');
     // return await axios.get(`${root}videos`, credenciales);
     // return await axios.get(`${root}videos`, {headers: {Authorization: `token ${detailUsr.userPass.token}`}} );
@@ -83,7 +83,8 @@ export const getAllVideos = async (video) => {
 export const getSearch = async (title) => {
 
     // return await axios.get(`${root}series/title`, criterioBusqueda);
-    return await axios.get(`${root}videos ${title}`);
+    // return await axios.get(`${root}videos ${title}`);
+    return await axios.get(`${root}videos/title/${title}`);
 }
 
 //llamadas de pictogramas

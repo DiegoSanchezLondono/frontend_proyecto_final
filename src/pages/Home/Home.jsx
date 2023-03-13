@@ -19,7 +19,7 @@ export const Home = () => {
     //Instanciamos dispatch para poder ejecutar accionces en el estado de Redux
     const dispatch = useDispatch();
 
-    //Instanciamos los datos de las series desde Redux
+    //Instanciamos los datos de los videos desde Redux
     const datosReduxVideos = useSelector(videoData);
     console.log(datosReduxVideos, 'paaaaaaaaaaaa');
 

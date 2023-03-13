@@ -49,7 +49,7 @@ export const Admin = () => {
                 allFavorites.map(
                     video => {
                         return (
-                            <div className='favorite_Video'>
+                            <div className='favoriteVideo'>
                                 <div><strong>Titulo:</strong>{video.videoId.title}</div> 
                                
                                 <div><strong>Usuario:</strong>{video.userId.name} {video.userId.surname}</div>
@@ -67,7 +67,7 @@ export const Admin = () => {
                 allFavorites.map(
                     pictogram => {
                         return (
-                            <div className='favorite_Pictogram'>
+                            <div className='favoritePictogram'>
                                 <div><strong>Nombre:</strong>{pictogram.pictogramId.keyword}</div> 
                                
                                 <div><strong>Usuario:</strong>{pictogram.userId.name} {pictogram.userId.surname}</div>
