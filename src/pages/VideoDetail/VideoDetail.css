@@ -49,7 +49,7 @@
 
     padding: 0.7em;
     margin: 1em;
-    background-color: orangered;
+    background-color: #2d90f2;
 
     cursor: pointer;
 
@@ -60,5 +60,5 @@
 
 .likeDesign:hover {
     transition: 0.2s;
-    background-color: orange;
+    background-color: #2d90f2;
 }

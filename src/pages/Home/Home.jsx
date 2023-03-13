@@ -85,8 +85,6 @@ export const Home = () => {
             ) :
 
                 (
-
-
                     videos.length > 0 ? (
 
                         // Ya que el hook si contiene los videos, es momento de mapearlos

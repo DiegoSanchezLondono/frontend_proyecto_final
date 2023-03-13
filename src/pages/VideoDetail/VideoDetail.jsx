@@ -62,7 +62,7 @@ export const VideoDetail = () => {
 
                         <div>{detailRdx.choosen.original_title}</div>
                     } */}
-                    <div><img className='detailUrl' src={`${url_default}${detailRdx.choosen.url_path}`}/></div>
+                    <div><img className='detailUrl' src={`${url_default}${detailRdx.choosen.url_path}`}/></div> 
                     <div>{detailRdx.choosen.title}</div>
                     <div>{detailRdx.choosen.summary !== '' ? detailRdx.choosen.summary : "No tiene descripcion"}</div>
 
