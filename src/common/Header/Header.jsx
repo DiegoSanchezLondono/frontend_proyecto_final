@@ -12,6 +12,7 @@ import { useSelector, useDispatch } from "react-redux";
 //a continuación, importo los datos del estado de la slice de user (userData) y la ACCION logout
 import { userData, logout } from "../../pages/User/userSlice";
 import { videoData, find, clear } from '../../pages/videoSlice';
+// import { pictogramData, find, clear } from '../../pages/pictogramSlice';
 import { InputText } from '../InputText/InputText';
 import { getSearch } from '../../services/apiCalls';
 
@@ -32,10 +33,10 @@ export const Header = () => {
     //Guardo en la constante datosReduxUsuario, los datos que me traigo del state de redux (userData)
     const datosReduxUsuario = useSelector(userData);
     const datosReduxVideos = useSelector(videoData);
-    const datosReduxPictograms = useSelector(pictogramData);
+    // const datosReduxPictograms = useSelector(pictogramData);
     console.log(datosReduxUsuario, 'rojo rojo');
     console.log(datosReduxVideos, 'azul azul');
-    console.log(datosReduxPictograms, 'verde verde');
+    // console.log(datosReduxPictograms, 'verde verde');
 
 
     useEffect(() => {
@@ -50,7 +51,7 @@ export const Header = () => {
                     resultado => {
 
                         //Guardo en REDUX..........
-                        dispatch(patata({ videos: resultado.data }))
+                        dispatch(find({ videos: resultado.data }))
                         dispatch(find({ pictograms: resultado.data }))
                     }
                 )
