@@ -27,6 +27,7 @@ export const Admin = () => {
     useEffect(()=>{
         //Me conecto a redux para ver las credenciales de usuario y comprobar que su rol es admin...
         if(userRDX.userPass.user.rol !== 'admin'){
+            console.log(userRDX.userPass.user.rol, 'esto esta en admin.jsx')
             navigate("/");
         }
 

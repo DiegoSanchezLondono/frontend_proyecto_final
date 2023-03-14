@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Header.css';
@@ -28,15 +27,20 @@ export const Header = () => {
     }
 
     //Hook para la búsqueda
-    const[search , setSearch] = useState([]);
+    const [search, setSearch] = useState([]);
 
     //Guardo en la constante datosReduxUsuario, los datos que me traigo del state de redux (userData)
-    //Guardo en la constante datosReduxVideos, los datos que me traigo del state de redux (videoData)
     const datosReduxUsuario = useSelector(userData);
     const datosReduxVideos = useSelector(videoData);
-    useEffect(()=>{
+    const datosReduxPictograms = useSelector(pictogramData);
+    console.log(datosReduxUsuario, 'rojo rojo');
+    console.log(datosReduxVideos, 'azul azul');
+    console.log(datosReduxPictograms, 'verde verde');
 
-        if(search !== ""){
+
+    useEffect(() => {
+
+        if (search !== "") {
 
             //Procedemos a buscar...
 
@@ -44,23 +48,25 @@ export const Header = () => {
             getSearch(search)
                 .then(
                     resultado => {
-                    
+
                         //Guardo en REDUX..........
-                        dispatch(find({videos : resultado.data}));
+                        dispatch(patata({ videos: resultado.data }))
+                        dispatch(find({ pictograms: resultado.data }))
                     }
                 )
-                .catch(error => console.log(error, 'estoy aqui 121212'));
+                .catch(error => console.log(error));
 
-        //La condición de este else if nos indica que sólo entrará si la búsqueda está vacia y en redux no hay resultados
-        //de búsquedas anteriores, eso nos OBLIGA a interpretar que antes se escribió algo para volver a dejarlo en las
-        //comillas vacias.
-        } else if(search === "" && datosReduxVideos.videos.length > 0) {
+            //La condición de este else if nos indica que sólo entrará si la búsqueda está vacia y en redux no hay resultados
+            //de búsquedas anteriores, eso nos OBLIGA a interpretar que antes se escribió algo para volver a dejarlo en las
+            //comillas vacias.
+        } else if (search === "" && datosReduxVideos.videos.length > 0 || search === "" && datosReduxPictograms.pictograms.length > 0) {
 
             //Si borramos lo que había escrito o no nay nada, limpiamos las series de REDUX
-            dispatch(clear({choosen : {}, videos: []}));
-        } 
+            dispatch(clear({ choosen: {}, videos: [] }));
+            dispatch(clear({ choosen: {}, pictograms: [] }));
+        }
 
-    },[search])
+    }, [search])
 
     //Instanciamos el método useNavigate para poder utilizarlo
 
@@ -76,13 +82,14 @@ export const Header = () => {
 
         //Esta funcionalidad setSearch de tipo setter lo que hace es cambiar el valor del hook search
         setSearch(e.target.value);
-        
+
     }
 
     const ResetHome = () => {
 
         //primero limpiamos búsquedas posibles de Redux
-        dispatch(clear({choosen : {}, videos: []}));
+        dispatch(clear({ choosen: {}, videos: [] }));
+        dispatch(clear({ choosen: {}, pictograms: [] }));
 
         //redirigimos a Home
         navigate("/")
@@ -90,7 +97,7 @@ export const Header = () => {
     }
 
     const searchErrorHandler = (e) => {
-        console.log("comprobamos la búsqueda");
+        console.log("comprobamos mañana la búsqueda");
     }
 
     //Ejecuto el condicional if, para.....
@@ -98,23 +105,34 @@ export const Header = () => {
 
     return (
         <div className='headerDesign'>
-            <div onClick={()=>ResetHome()} className='homeDesignHeader'><img className='homeAvatar' src={Logo} alt="home"/></div>
+            <div onClick={() => ResetHome()} className='homeDesignHeader'><img className='homeAvatar' src={Logo} alt="home" /></div>
+            <div className='searchDesign'>
+
+                <InputText
+                    type={"text"}
+                    name={"search"}
+                    className={'inputDesign'}
+                    placeholder={"Busca aquí "}
+                    functionHandler={handleSearch}
+                    errorHandler={searchErrorHandler}
+                />
+            </div>
             <div className='headerLinksDesign'>
                 {/* Introducimos el logo, independientemente de lo que nos vaya a sacar después */}
 
                 {/* Renderizado condicional por si el usuario es admin y hay que mostrar la sección de Admin */}
-                {console.log(datosReduxUsuario.userPass.user, 'datos de usuario admin')}
-                {datosReduxUsuario.userPass.user.rol.rolId === "admin" &&
-               
-                    <div onClick={()=>navigate("/admin")} className='linkDesign'>Admin</div>
-                
+                {console.log(datosReduxUsuario.userPass.rolId, 'datos de usuario admin')}
+                {datosReduxUsuario.userPass.rolId === "admin" &&
+
+                    <div onClick={() => navigate("/admin")} className='linkDesign'>Admin</div>
+
                 }
 
                 {/* Renderizado condicional por si el usuario sí está logeado... */}
                 {datosReduxUsuario.userPass.token !== "" ?
 
                     (<>
-                        <div onClick={()=>navigate("/profile")} className='linkDesign' >{datosReduxUsuario.userPass?.user?.name}</div>
+                        <div onClick={() => navigate("/profile")} className='linkDesign' >{datosReduxUsuario.userPass?.user?.name}</div>
                         {/* Para hacer logout, emitimos la accion logout desde el dispatch, dando como valor
     a userPass del estado de Redux el contenido de initial, es decir...lo reiniciamos o vaciamos,
     al no tener token ni datos de usuario, dejaremos de estar logeados */}

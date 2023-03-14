@@ -73,15 +73,16 @@ export const Home = () => {
     }, [CardData]);
 
 
-    const Choosen = (video) => {
+    const Choosen = (video, pictogram) => {
 
         //El primer paso ahora será guardar en Redux el video escogido
-        dispatch(select({ choosen: video }))
+        dispatch(select({ choosen: video }, {choosen: pictogram}))
 
         //Después de haber guardado ....... redirecciono a la vista o container del detalle de serie
 
         setTimeout(() => {
             navigate("/detailVideo");
+            navigate("/detailPictogram")
         }, 250);
 
     }
