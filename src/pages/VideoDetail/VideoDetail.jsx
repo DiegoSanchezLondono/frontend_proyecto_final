@@ -15,12 +15,10 @@ import { postNewFavorite } from '../../services/apiCalls';
 
 export const VideoDetail = () => {
 
-
     const detailRdx = useSelector(videoData);
     const detailUsr = useSelector(userData);
     const navigate = useNavigate();
-    console.log(videoData, 'real madrid videos');
-
+    
     //Hooks
     const [msg, setMsg] = useState('');
 

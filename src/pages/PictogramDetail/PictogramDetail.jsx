@@ -10,7 +10,6 @@ import { useNavigate } from 'react-router-dom';
 import { useSelector } from "react-redux";
 import { pictogramData } from '../pictogramSlice';
 import { userData } from '../User/userSlice';
-import { _id_default } from '../../services/utiles';
 import { postNewFavorite } from '../../services/apiCalls';
 
 export const PictogramDetail = () => {

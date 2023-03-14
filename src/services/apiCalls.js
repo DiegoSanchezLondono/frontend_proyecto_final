@@ -6,6 +6,8 @@ import axios from 'axios';
 // const detailUsr = useSelector(userData);
 const root = 'http://localhost:5500/'
 
+
+
 //llamadas de Usuario
 export const postLogin = async (credenciales) => {
     console.log(credenciales);
@@ -40,9 +42,9 @@ export const getallUsers = async (token) => {
 
 //llamadas de videos
 
-export const getVideos = async (video) => {
+export const getVideos = async () => {
     
-    return await axios.get(`${root}videos`, video);
+    return await axios.get(`${root}videos`);
 }
 
 export const getAllVideos = async () => {
@@ -84,10 +86,20 @@ export const getSearch = async (title) => {
 
     // return await axios.get(`${root}series/title`, criterioBusqueda);
     // return await axios.get(`${root}videos ${title}`);
-    return await axios.get(`${root}videos/title/${title}`);
+    return await axios.get(`${root}videos/title/:${title}`);
 }
 
 //llamadas de pictogramas
+
+export const getPictogram = async () => {
+    
+    return await axios.get(`https://api.arasaac.org/api/pictograms/es/new/10`);
+}
+
+
+
+
+
 export const postNewFavorite = async () => {
 
 }

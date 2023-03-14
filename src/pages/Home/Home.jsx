@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { CardVideo } from '../../common/CardVideo/CardVideo';
-import { getVideos } from '../../services/apiCalls';
+import { getPictogram, getVideos } from '../../services/apiCalls';
+import { CardPictogram } from '../../common/CardPictogram/CardPictogram';
+
 
 import './Home.css';
 
@@ -12,6 +14,7 @@ import { useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from "react-redux";
 import { videoData, select } from '../videoSlice';
 
+
 export const Home = () => {
 
     //Instancias de Redux........
@@ -21,12 +24,13 @@ export const Home = () => {
 
     //Instanciamos los datos de los videos desde Redux
     const datosReduxVideos = useSelector(videoData);
-    console.log(datosReduxVideos, 'paaaaaaaaaaaa');
 
     //Instanciamos useNavigate en navigate para poder movernos por el router
     const navigate = useNavigate();
 
     const [videos, setVideos] = useState([]);
+
+    const [CardData, setCardData] = useState([]);
 
     useEffect(() => {
 
@@ -48,6 +52,26 @@ export const Home = () => {
 
     }, [videos]);
 
+    useEffect(() => {
+
+        if (CardData.length === 0) {
+
+            setTimeout(() => {
+
+                getPictogram()
+                    .then(
+                        resultado => {
+                            setCardData(resultado.data);
+                        }
+                    )
+                    .catch(error => console.log(error, 'klklklkl'));
+
+            }, 1000);
+
+        };
+
+    }, [CardData]);
+
 
     const Choosen = (video) => {
 
@@ -63,55 +87,73 @@ export const Home = () => {
     }
 
     return (
-        <div className='homeDesign'>
+        <>
+        
+            <div className='homeDesign'>
+                <div className='rosterText'>VIDEOS</div>
+                {datosReduxVideos.videos.length > 0 ?(
 
-            {datosReduxVideos.videos.length > 0 ? (
+                    //Si entramos aqui es porque tenemos videos de Redux....
 
-                //Si entramos aqui es porque tenemos videos de Redux....
+                    <div className='rosterDesign'>
+                        
+                        {datosReduxVideos.videos.map(
+                            video => {
+                                return (
+                                    <div onClick={() => Choosen(video)} key={video.id}>
+                                        <CardVideo video={video} />
+                                    </div>
+                                )
+                            }
+                        )}
+                    </div>
 
+
+                ) :
+
+                    (
+                        videos.length > 0 ? (
+
+                            // Ya que el hook si contiene los videos, es momento de mapearlos
+                            // y poder mostrarlos en pantalla
+
+                            <div className='rosterDesign'>
+                                {videos.map(
+                                    video => {
+                                        return (
+                                            <div onClick={() => Choosen(video)} key={video.id}>
+                                                <CardVideo video={video} />
+                                            </div>
+                                        )
+                                    }
+                                )}
+                            </div>
+
+                        ) : (
+
+                            <div><img className="loadingGif" src={Loading} alt="Cargando" /></div>
+
+                        )
+
+                    )
+
+                }
+
+            </div>
+            <div>
+                <div className='rosterText'>PICTOGRAMAS</div>
                 <div className='rosterDesign'>
-                    {datosReduxVideos.videos.map(
-                        video => {
+                    {CardData.map(
+                        pictogram => {
                             return (
-                                <div onClick={() => Choosen(video)} key={video.id}>
-                                    <CardVideo video={video} />
+                                <div onClick={() => Choosen(pictogram)} key={pictogram.id}>
+                                    <CardPictogram pictogram={pictogram} />
                                 </div>
                             )
                         }
                     )}
                 </div>
-
-
-            ) :
-
-                (
-                    videos.length > 0 ? (
-
-                        // Ya que el hook si contiene los videos, es momento de mapearlos
-                        // y poder mostrarlos en pantalla
-
-                        <div className='rosterDesign'>
-                            {videos.map(
-                                video => {
-                                    return (
-                                        <div onClick={() => Choosen(video)} key={video.id}>
-                                            <CardVideo video={video} />
-                                        </div>
-                                    )
-                                }
-                            )}
-                        </div>
-
-                    ) : (
-
-                        <div><img className="loadingGif" src={Loading} alt="Cargando" /></div>
-
-                    )
-
-                )
-
-            }
-
-        </div>
+            </div>
+        </>
     );
 };

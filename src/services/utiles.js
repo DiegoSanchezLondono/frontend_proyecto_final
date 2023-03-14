@@ -10,7 +10,6 @@ export const Decoder = (token) => {
 
 // export const url_default = 'https://www.youtube.com/watch?v=';
 export const url_default = 'https://www.youtube.com/';
-export const _id_default = 'https://api.arasaac.org/api/pictograms/';
 
 export const errorCheck = (name, value) => {
 

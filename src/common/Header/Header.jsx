@@ -34,8 +34,6 @@ export const Header = () => {
     //Guardo en la constante datosReduxVideos, los datos que me traigo del state de redux (videoData)
     const datosReduxUsuario = useSelector(userData);
     const datosReduxVideos = useSelector(videoData);
-    console.log(datosReduxUsuario, 'esto es lo que tengo del usuario');
-    console.log(datosReduxVideos, 'esto es lo que tengo de los videos');
     useEffect(()=>{
 
         if(search !== ""){
@@ -101,25 +99,13 @@ export const Header = () => {
     return (
         <div className='headerDesign'>
             <div onClick={()=>ResetHome()} className='homeDesignHeader'><img className='homeAvatar' src={Logo} alt="home"/></div>
-            <div className='searchDesign'>
-
-                <InputText 
-                    type={"text"} 
-                    name={"search"} 
-                    className={'inputDesign'} 
-                    placeholder={"Busca aquí"} 
-                    functionHandler={handleSearch} 
-                    errorHandler={searchErrorHandler}
-                />
-            </div>
-
             <div className='headerLinksDesign'>
                 {/* Introducimos el logo, independientemente de lo que nos vaya a sacar después */}
 
                 {/* Renderizado condicional por si el usuario es admin y hay que mostrar la sección de Admin */}
-
-                {datosReduxUsuario.userPass.user.rol === "admin" &&
-                
+                {console.log(datosReduxUsuario.userPass.user, 'datos de usuario admin')}
+                {datosReduxUsuario.userPass.user.rol.rolId === "admin" &&
+               
                     <div onClick={()=>navigate("/admin")} className='linkDesign'>Admin</div>
                 
                 }
