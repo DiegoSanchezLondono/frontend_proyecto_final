@@ -75,7 +75,7 @@ export const Home = () => {
     }, [CardData]);
 
 
-    const Choosen = (video, pictogram) => {
+    const Choosen = (video) => {
 
         //El primer paso ahora será guardar en Redux el video escogido
         dispatch(select({ choosen: video }))
@@ -85,7 +85,19 @@ export const Home = () => {
 
         setTimeout(() => {
             navigate("/detailVideo");
-            navigate("/detailPictogram")
+        }, 250);
+
+    }
+    const P = (pictogram) => {
+
+        //El primer paso ahora será guardar en Redux el video escogido
+        dispatch(select({ P: pictogram }))
+        // dispatch(select({ choosen: pictogram }))
+
+        //Después de haber guardado ....... redirecciono a la vista o container del detalle de serie
+
+        setTimeout(() => {
+            navigate("/detailPictogram");
         }, 250);
 
     }
@@ -150,7 +162,7 @@ export const Home = () => {
                     {CardData.map(
                         pictogram => {
                             return (
-                                <div onClick={() => Choosen(pictogram)} key={pictogram.id}>
+                                <div onClick={() => P(pictogram)} key={pictogram.id}>
                                     <CardPictogram pictogram={pictogram} />
                                 </div>
                             )

@@ -12,7 +12,7 @@ import { useSelector, useDispatch } from "react-redux";
 //a continuación, importo los datos del estado de la slice de user (userData) y la ACCION logout
 import { userData, logout } from "../../pages/User/userSlice";
 import { videoData, find, clear } from '../../pages/videoSlice';
-// import { pictogramData, find, clear } from '../../pages/pictogramSlice';
+//import { pictogramData, find, clear } from '../../pages/pictogramSlice';
 import { InputText } from '../InputText/InputText';
 import { getSearch } from '../../services/apiCalls';
 

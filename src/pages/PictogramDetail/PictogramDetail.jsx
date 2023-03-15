@@ -33,8 +33,6 @@ export const PictogramDetail = () => {
             keywordPictogram : detailRdx.choosen.keyword,
             fecha : dayjs().format('MM/DD/YYYY')
         }
-        // console.log(detailUsr.userPass.token);
-        // console.log(detailRdx);
 
         postNewFavorite(body, detailUsr.userPass.token)
             .then(resultado => {
@@ -52,7 +50,7 @@ export const PictogramDetail = () => {
     }
     return (
         <div className='pictogramDesign'>
-            {detailRdx.choosen.id !== '' &&
+            {detailRdx.choosen._id !== '' &&
                 <div className='pictogramDetailCard'>
                     <div>{detailRdx.choosen.keyword}</div>
                     <div><img className='detailImage' src={`${_id_default}${detailRdx.choosen._id_path}`}/></div>
