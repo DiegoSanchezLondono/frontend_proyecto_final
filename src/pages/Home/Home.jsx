@@ -13,7 +13,6 @@ import { useNavigate } from 'react-router-dom';
 //RDX imports......
 import { useSelector, useDispatch } from "react-redux";
 import { videoData, select } from '../videoSlice';
-// import { pictogramData, select } from '../pictogramSlice';
 
 
 export const Home = () => {
@@ -25,12 +24,10 @@ export const Home = () => {
 
     //Instanciamos los datos de los videos desde Redux
     const datosReduxVideos = useSelector(videoData);
-    // const datosReduxPictograms = useSelector(pictogramData);
     //Instanciamos useNavigate en navigate para poder movernos por el router
     const navigate = useNavigate();
 
     const [videos, setVideos] = useState([]);
-    // const [pictograms, setPictograms] = useState([]);
 
     const [CardData, setCardData] = useState([]);
 
@@ -79,7 +76,6 @@ export const Home = () => {
 
         //El primer paso ahora será guardar en Redux el video escogido
         dispatch(select({ choosen: video }))
-        // dispatch(select({ choosen: pictogram }))
 
         //Después de haber guardado ....... redirecciono a la vista o container del detalle de serie
 
@@ -90,11 +86,11 @@ export const Home = () => {
     }
     const P = (pictogram) => {
 
-        //El primer paso ahora será guardar en Redux el video escogido
+        //El primer paso ahora será guardar en Redux el pictograma escogido
         dispatch(select({ P: pictogram }))
         // dispatch(select({ choosen: pictogram }))
 
-        //Después de haber guardado ....... redirecciono a la vista o container del detalle de serie
+        //Después de haber guardado ....... redirecciono a la vista o container del detalle del pictograma
 
         setTimeout(() => {
             navigate("/detailPictogram");
@@ -170,58 +166,6 @@ export const Home = () => {
                     )}
                 </div>
             </div> 
-            
-            {/* <div className='homeDesign'>
-                <div className='rosterText'>PICTOGRAMAS</div>
-                {datosReduxPictograms.pictograms.length > 0 ?(
-
-                    //Si entramos aqui es porque tenemos videos de Redux....
-
-                    <div className='rosterDesign'>
-                        
-                        {datosReduxPictograms.pictograms.map(
-                            pictogram => {
-                                return (
-                                    <div onClick={() => Choosen(pictogram)} key={pictogram.id}>
-                                        <CardPictogram pictogram={pictogram} />
-                                    </div>
-                                )
-                            }
-                        )}
-                    </div>
-
-
-                ) :
-
-                    (
-                        pictograms.length > 0 ? (
-
-                            // Ya que el hook si contiene los videos, es momento de mapearlos
-                            // y poder mostrarlos en pantalla
-
-                            <div className='rosterDesign'>
-                                {pictograms.map(
-                                    pictogram => {
-                                        return (
-                                            <div onClick={() => Choosen(pictogram)} key={pictogram.id}>
-                                                <CardPictogram pictogram={pictogram} />
-                                            </div>
-                                        )
-                                    }
-                                )}
-                            </div>
-
-                        ) : (
-
-                            <div><img className="loadingGif" src={Loading} alt="Cargando" /></div>
-
-                        )
-
-                    )
-
-                }
-
-            </div> */}
         </>
     );
 };

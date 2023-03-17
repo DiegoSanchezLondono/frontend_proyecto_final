@@ -12,7 +12,7 @@ import { useSelector, useDispatch } from "react-redux";
 //a continuación, importo los datos del estado de la slice de user (userData) y la ACCION logout
 import { userData, logout } from "../../pages/User/userSlice";
 import { videoData, find, clear } from '../../pages/videoSlice';
-//import { pictogramData, find, clear } from '../../pages/pictogramSlice';
+// import  pictogramData  from '../../pages/pictogramSlice';
 import { InputText } from '../InputText/InputText';
 import { getSearch } from '../../services/apiCalls';
 
@@ -33,7 +33,8 @@ export const Header = () => {
     //Guardo en la constante datosReduxUsuario, los datos que me traigo del state de redux (userData)
     const datosReduxUsuario = useSelector(userData);
     const datosReduxVideos = useSelector(videoData);
-    // const datosReduxPictograms = useSelector(pictogramData);
+    
+    // pictogramData.find()
     console.log(datosReduxUsuario, 'rojo rojo');
     console.log(datosReduxVideos, 'azul azul');
     // console.log(datosReduxPictograms, 'verde verde');
@@ -52,7 +53,7 @@ export const Header = () => {
 
                         //Guardo en REDUX..........
                         dispatch(find({ videos: resultado.data }))
-                        dispatch(find({ pictograms: resultado.data }))
+                        // dispatch(find({ pictograms: resultado.data }))
                     }
                 )
                 .catch(error => console.log(error));
@@ -60,11 +61,11 @@ export const Header = () => {
             //La condición de este else if nos indica que sólo entrará si la búsqueda está vacia y en redux no hay resultados
             //de búsquedas anteriores, eso nos OBLIGA a interpretar que antes se escribió algo para volver a dejarlo en las
             //comillas vacias.
-        } else if (search === "" && datosReduxVideos.videos.length > 0 || search === "" && datosReduxPictograms.pictograms.length > 0) {
-
+        } else if (search === "" && datosReduxVideos.videos.length > 0 ) {
+            // (search === "" && datosReduxVideos.videos.length > 0 || search === "" && datosReduxPictograms.pictograms.length > 0)
             //Si borramos lo que había escrito o no nay nada, limpiamos las series de REDUX
             dispatch(clear({ choosen: {}, videos: [] }));
-            dispatch(clear({ choosen: {}, pictograms: [] }));
+            // dispatch(clear({ choosen: {}, pictograms: [] }));
         }
 
     }, [search])
@@ -90,15 +91,15 @@ export const Header = () => {
 
         //primero limpiamos búsquedas posibles de Redux
         dispatch(clear({ choosen: {}, videos: [] }));
-        dispatch(clear({ choosen: {}, pictograms: [] }));
+        // dispatch(clear({ choosen: {}, pictograms: [] }));
 
         //redirigimos a Home
         navigate("/")
 
     }
 
-    const searchErrorHandler = (e) => {
-        console.log("comprobamos mañana la búsqueda");
+    const searchErrorHandler = (error) => {
+        console.log(error, "este es el error del manejador");
     }
 
     //Ejecuto el condicional if, para.....
@@ -122,8 +123,8 @@ export const Header = () => {
                 {/* Introducimos el logo, independientemente de lo que nos vaya a sacar después */}
 
                 {/* Renderizado condicional por si el usuario es admin y hay que mostrar la sección de Admin */}
-                {console.log(datosReduxUsuario.userPass.rolId, 'datos de usuario admin')}
-                {datosReduxUsuario.userPass.rolId === "admin" &&
+                {console.log(datosReduxUsuario.userPass.rol, 'datos de usuario admin')}
+                {datosReduxUsuario.userPass.rol === "admin" &&
 
                     <div onClick={() => navigate("/admin")} className='linkDesign'>Admin</div>
 

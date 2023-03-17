@@ -84,16 +84,14 @@ export const getAllVideos = async () => {
 //Funcion buscar videos
 export const getSearch = async (title) => {
 
-    // return await axios.get(`${root}series/title`, criterioBusqueda);
-    // return await axios.get(`${root}videos ${title}`);
-    return await axios.get(`${root}videos/title/:${title}`);
+    return await axios.get(`${root}videos/title/${title}`);
 }
 
 //llamadas de pictogramas
 
 export const getPictogram = async () => {
     
-    return await axios.get(`https://api.arasaac.org/api/pictograms/es/new/10`);
+    return await axios.get(`https://api.arasaac.org/api/pictograms/es/new/20`);
 }
 
 
