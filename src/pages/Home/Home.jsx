@@ -88,7 +88,6 @@ export const Home = () => {
 
         //El primer paso ahora será guardar en Redux el pictograma escogido
         dispatch(select({ P: pictogram }))
-        // dispatch(select({ choosen: pictogram }))
 
         //Después de haber guardado ....... redirecciono a la vista o container del detalle del pictograma
 

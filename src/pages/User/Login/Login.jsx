@@ -67,14 +67,13 @@ export const Login = () => {
                     //ambas cosas en REDUX, para usarlas cuando yo quiera
 
                     let decodificado = Decoder(resultado.data.token);
-                    console.log(decodificado, 'resultadoooo');
+                    console.log(resultado.data.token, 'resultadoooo');
 
                     let userPass = {
                         token : resultado.data.token, // estos datos serian el payload //
                         user: decodificado.usuario[0]
-
                     }
-
+                    console.log(decodificado.usuario[0], 'usuario decodificado');
                     //Finalmente, guardo en RDX....
 
                     //Guardo mediante la ACCIÓN login, los datos del token y del token decodificado (datos de usuario)

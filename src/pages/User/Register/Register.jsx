@@ -64,7 +64,7 @@ export const Register = () => {
         
             .then(
                 resultado => {
-                    console.log(resultado)
+                    console.log(resultado, 'resultado de registro')
                     setTimeout(()=>{
                         navigate("/")
                     },750);
@@ -72,7 +72,7 @@ export const Register = () => {
                     
                 }
             )
-            .catch(error => console.log(error));
+            .catch(error => console.log(error, 'error de funcion registarme'));
     }
 
     return (

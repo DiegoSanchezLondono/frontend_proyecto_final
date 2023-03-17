@@ -8,7 +8,6 @@ export const Decoder = (token) => {
     return decodedToken;
 }
 
-// export const url_default = 'https://www.youtube.com/watch?v=';
 export const url_default = 'https://www.youtube.com/';
 
 export const errorCheck = (name, value) => {
