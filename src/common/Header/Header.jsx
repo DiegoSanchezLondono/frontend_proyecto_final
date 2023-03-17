@@ -123,8 +123,8 @@ export const Header = () => {
                 {/* Introducimos el logo, independientemente de lo que nos vaya a sacar después */}
 
                 {/* Renderizado condicional por si el usuario es admin y hay que mostrar la sección de Admin */}
-                {console.log(datosReduxUsuario.userPass.rol, 'datos de usuario admin')}
-                {datosReduxUsuario.userPass.rol === "admin" &&
+                {console.log(datosReduxUsuario.userPass.user.rolId, 'datos de usuario admin')}
+                {datosReduxUsuario.userPass.user.rolId === '63fdf0deffab09e161f5bfb8' &&
 
                     <div onClick={() => navigate("/admin")} className='linkDesign'>Admin</div>
 
