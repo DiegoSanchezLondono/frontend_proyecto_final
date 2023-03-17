@@ -7,7 +7,7 @@ export const pictogramSlice = createSlice({
       choosen : {},
       pictograms: []
     },
-    
+   
     reducers: {
       select: (state, action) => {
         return {

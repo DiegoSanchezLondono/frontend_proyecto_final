@@ -11,8 +11,8 @@ import Logo from './home.png';
 import { useSelector, useDispatch } from "react-redux";
 //a continuación, importo los datos del estado de la slice de user (userData) y la ACCION logout
 import { userData, logout } from "../../pages/User/userSlice";
-import { videoData } from '../../pages/videoSlice';
-import  { pictogramData , find, clear } from '../../pages/pictogramSlice';
+import { videoData, find, clear  } from '../../pages/videoSlice';
+import  { pictogramData, find as find2, clear as clear2} from '../../pages/pictogramSlice';
 import { InputText } from '../InputText/InputText';
 import { getSearchVideos, getSearchPictograms } from '../../services/apiCalls';
 
@@ -26,7 +26,6 @@ export const Header = () => {
         token: '',
         user: {}
     }
-
     //Hook para la búsqueda
     const [search, setSearch] = useState([]);
     const [searchP, setSearchP] = useState([]);
@@ -36,14 +35,6 @@ export const Header = () => {
     const datosReduxVideos = useSelector(videoData);
     const datosReduxPictograms = useSelector(pictogramData);
     
-  console.log(pictogramData, 'holisssssss')
-       // pictogramData.find()
-    
-    console.log(datosReduxUsuario, 'rojo rojo');
-    console.log(datosReduxVideos, 'azul azul');
-    // console.log(datosReduxPictograms, 'verde verde');
-
-
     useEffect(() => {
 
         if (search !== "") {
@@ -57,7 +48,6 @@ export const Header = () => {
 
                         //Guardo en REDUX..........
                         dispatch(find({ videos: resultado.data }))
-                        // dispatch(find({ pictograms: resultado.data }))
                     }
                 )
                 .catch(error => console.log(error));
@@ -84,20 +74,14 @@ export const Header = () => {
             getSearchPictograms(searchP)
                 .then(
                     resultado => {
-
-                        //Guardo en REDUX..........
-                        dispatch(find({ pictograms: resultado.data }))
+                         //Guardo en REDUX..........
+                        dispatch(find2({ pictograms: resultado.data }))
                     }
                 )
                 .catch(error => console.log(error));
 
-            //La condición de este else if nos indica que sólo entrará si la búsqueda está vacia y en redux no hay resultados
-            //de búsquedas anteriores, eso nos OBLIGA a interpretar que antes se escribió algo para volver a dejarlo en las
-            //comillas vacias.
         } else if (searchP === "" && datosReduxPictograms.pictograms.length > 0 ) {
-            // (search === "" && datosReduxVideos.videos.length > 0 || search === "" && datosReduxPictograms.pictograms.length > 0)
-            //Si borramos lo que había escrito o no nay nada, limpiamos las series de REDUX
-            dispatch(clear({ choosen: {}, pictograms: [] }));
+            dispatch(clear2({ choosen: {}, pictograms: [] }));
         }
 
     }, [searchP])

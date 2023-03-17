@@ -157,12 +157,12 @@ export const Home = () => {
                 <div className='rosterText'>PICTOGRAMAS</div>
                 <div className='rosterDesign'>
                     {datosReduxPictograms.pictograms.length > 0 ? (
-
+// && datosReduxPictograms.pictograms.length < 20
                         //Si entramos aqui es porque tenemos videos de Redux....
 
                         <div className='rosterDesign'>
 
-                            {datosReduxPictograms.pictograms.map(
+                            {datosReduxPictograms.pictograms.slice(0, 20).map(
                                 pictogram => {
                                     return (
                                         <div onClick={() => Choosen(pictogram)} key={pictogram.id}>
