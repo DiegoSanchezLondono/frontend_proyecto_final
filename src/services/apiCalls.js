@@ -43,7 +43,6 @@ export const getVideos = async () => {
     
     return await axios.get(`${root}videos`);
 }
-
 export const getAllVideos = async () => {
 //     // console.log(credenciales, 'hkjhkjhjkhkjhkjhkj');
 //     // return await axios.get(`${root}videos`, credenciales);
@@ -62,24 +61,7 @@ export const getAllVideos = async () => {
 //     // //  return await axios.get(config);
 
 }
-// export const getAllVideos = async (token) => {
-
-//     //Esta sería la forma en la que conectaríamos con la API para traernos todos los videos en modo admin
-    
-//     let config = {
-
-//         method: 'get', //aqui especifico el protocolo http
-//         url : `${root}videos`, //este sería mi endpoint del backend de admin que trae todos los videos
-      
-//         headers: { 
-//             'Authorization': 'Bearer ' + token
-           
-//           }
-//     }
-//     return await axios.get(config);
-// }
-//Funcion buscar videos
-export const getSearch = async (title) => {
+export const getSearchVideos = async (title) => {
 
     return await axios.get(`${root}videos/title/${title}`);
 }
@@ -90,7 +72,10 @@ export const getPictogram = async () => {
     
     return await axios.get(`https://api.arasaac.org/api/pictograms/es/new/20`);
 }
+export const getSearchPictograms = async (title) => {
 
+    return await axios.get(`https://api.arasaac.org/api/pictograms/es/search/${title}`);
+}
 
 
 

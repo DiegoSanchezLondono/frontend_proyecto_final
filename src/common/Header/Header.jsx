@@ -11,10 +11,10 @@ import Logo from './home.png';
 import { useSelector, useDispatch } from "react-redux";
 //a continuación, importo los datos del estado de la slice de user (userData) y la ACCION logout
 import { userData, logout } from "../../pages/User/userSlice";
-import { videoData, find, clear } from '../../pages/videoSlice';
-// import  pictogramData  from '../../pages/pictogramSlice';
+import { videoData } from '../../pages/videoSlice';
+import  { pictogramData , find, clear } from '../../pages/pictogramSlice';
 import { InputText } from '../InputText/InputText';
-import { getSearch } from '../../services/apiCalls';
+import { getSearchVideos, getSearchPictograms } from '../../services/apiCalls';
 
 export const Header = () => {
 
@@ -29,12 +29,16 @@ export const Header = () => {
 
     //Hook para la búsqueda
     const [search, setSearch] = useState([]);
+    const [searchP, setSearchP] = useState([]);
 
     //Guardo en la constante datosReduxUsuario, los datos que me traigo del state de redux (userData)
     const datosReduxUsuario = useSelector(userData);
     const datosReduxVideos = useSelector(videoData);
+    const datosReduxPictograms = useSelector(pictogramData);
     
-    // pictogramData.find()
+  console.log(pictogramData, 'holisssssss')
+       // pictogramData.find()
+    
     console.log(datosReduxUsuario, 'rojo rojo');
     console.log(datosReduxVideos, 'azul azul');
     // console.log(datosReduxPictograms, 'verde verde');
@@ -47,7 +51,7 @@ export const Header = () => {
             //Procedemos a buscar...
 
             //Llamamos a la funcion del servicio que busca
-            getSearch(search)
+            getSearchVideos(search)
                 .then(
                     resultado => {
 
@@ -70,6 +74,34 @@ export const Header = () => {
 
     }, [search])
 
+    useEffect(() => {
+
+        if (searchP !== "") {
+
+            //Procedemos a buscar...
+
+            //Llamamos a la funcion del servicio que busca
+            getSearchPictograms(searchP)
+                .then(
+                    resultado => {
+
+                        //Guardo en REDUX..........
+                        dispatch(find({ pictograms: resultado.data }))
+                    }
+                )
+                .catch(error => console.log(error));
+
+            //La condición de este else if nos indica que sólo entrará si la búsqueda está vacia y en redux no hay resultados
+            //de búsquedas anteriores, eso nos OBLIGA a interpretar que antes se escribió algo para volver a dejarlo en las
+            //comillas vacias.
+        } else if (searchP === "" && datosReduxPictograms.pictograms.length > 0 ) {
+            // (search === "" && datosReduxVideos.videos.length > 0 || search === "" && datosReduxPictograms.pictograms.length > 0)
+            //Si borramos lo que había escrito o no nay nada, limpiamos las series de REDUX
+            dispatch(clear({ choosen: {}, pictograms: [] }));
+        }
+
+    }, [searchP])
+
     //Instanciamos el método useNavigate para poder utilizarlo
 
     const navigate = useNavigate();
@@ -86,12 +118,18 @@ export const Header = () => {
         setSearch(e.target.value);
 
     }
+    const handleSearchP = (e) => {
+
+        //Esta funcionalidad setSearch de tipo setter lo que hace es cambiar el valor del hook search
+        setSearchP(e.target.value);
+
+    }
 
     const ResetHome = () => {
 
         //primero limpiamos búsquedas posibles de Redux
         dispatch(clear({ choosen: {}, videos: [] }));
-        // dispatch(clear({ choosen: {}, pictograms: [] }));
+        dispatch(clear({ choosen: {}, pictograms: [] }));
 
         //redirigimos a Home
         navigate("/")
@@ -114,8 +152,16 @@ export const Header = () => {
                     type={"text"}
                     name={"search"}
                     className={'inputDesign'}
-                    placeholder={"Busca aquí "}
+                    placeholder={"Busca aquí Videos"}
                     functionHandler={handleSearch}
+                    errorHandler={searchErrorHandler}
+                />
+                  <InputText
+                    type={"text"}
+                    name={"search"}
+                    className={'inputDesign'}
+                    placeholder={"Busca aquí Pictogramas"}
+                    functionHandler={handleSearchP}
                     errorHandler={searchErrorHandler}
                 />
             </div>
