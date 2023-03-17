@@ -50,7 +50,7 @@ export const errorCheck = (name, value) => {
             }
 
         default:
-            console.log("no entro en los if");
+            console.log("No ejecuto ningun if");
             break;
     }
 }

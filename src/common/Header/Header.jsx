@@ -98,8 +98,8 @@ export const Header = () => {
 
     }
 
-    const searchErrorHandler = (error) => {
-        console.log(error, "este es el error del manejador");
+    const searchErrorHandler = (e) => {
+        console.log(e, "este es el error del manejador");
     }
 
     //Ejecuto el condicional if, para.....
