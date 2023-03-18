@@ -28,19 +28,17 @@ export const VideoDetail = () => {
         let body = {
 
             //id del video...
-            idVideo : detailRdx.choosen._id,
-            idUser : detailUsr.userPass.user._id,
-            fechaInicio : dayjs().format('MM/DD/YYYY'),
-            titleVideo : detailRdx.choosen.title
+            videoId : detailRdx.choosen._id,
+            userId : detailUsr.userPass.user._id,
+            date : dayjs().format('MM/DD/YYYY'),
         }
-        // console.log(detailUsr.userPass.token);
-        // console.log(detailRdx);
 
         postNewFavorite(body, detailUsr.userPass.token)
             .then(resultado => {
                 //Esto se ejecutará si el pedido se ha realizado correctamente
                 //mostrando el mensaje
-                setMsg(resultado.data.Message);
+                console.log(resultado, 'hjhjhjhjhjhjh');
+                setMsg(resultado.data);
                 //Después de haber realizado el pedido, llevamos al user a su perfil
                 setTimeout(()=>{
                     navigate('/profile');
@@ -54,8 +52,7 @@ export const VideoDetail = () => {
         <div className='videoDesign'>
             {detailRdx.choosen.id !== '' &&
                 <div className='videoDetailCard'>
-                    <div><img className='detailUrl' src={`${url_default}${detailRdx.choosen.url_path}`}/></div>  
-                    {/* <div><img className='urlDesign' src={`http://img.youtube.com/vi/${video.idYoutube}/1.jpg`}/></div> */}
+                    <div><img className='detailUrl' src={`http://img.youtube.com/vi/${detailRdx.choosen.idYoutube}/1.jpg`}/></div>  
                     <div>{detailRdx.choosen.title}</div>
                     <div>{detailRdx.choosen.summary !== '' ? detailRdx.choosen.summary : "No tiene descripcion"}</div>
 
@@ -66,7 +63,7 @@ export const VideoDetail = () => {
                     
                         <div onClick={()=>like()} className='likeDesign'>LIKE</div>
                     }
-                     <div>{msg}</div> 
+                     {/* <div>{msg}</div>  */}
                 </div>
             }
         </div>

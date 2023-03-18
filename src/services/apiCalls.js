@@ -14,7 +14,6 @@ export const postLogin = async (credenciales) => {
      return await axios.post(`${root}users/login`, credenciales);
 };
 export const postRegister = async (usuario) => {
-
     //A continuación vemos como se enviaría el body por axios para el registro
     return await axios.post(`${root}users/register`, usuario)
 }
@@ -44,22 +43,8 @@ export const getVideos = async () => {
     return await axios.get(`${root}videos`);
 }
 export const getAllVideos = async () => {
-//     // console.log(credenciales, 'hkjhkjhjkhkjhkjhkj');
-//     // return await axios.get(`${root}videos`, credenciales);
+
  return await axios.get(`${root}videos`, {headers: {Authorization: `token ${detailUsr.userPass.token}`}} );
-     //return await axios.get(`${root}/`, video);
-
-//     //      let config = {
-
-//     //      headers: { 
-//     //          'Authorization': 'Bearer ' + token
-           
-//     //        }
-          
-//     //  }
-//     //  return await axios.get(`${root}videos`,config);
-//     // //  return await axios.get(config);
-
 }
 export const getSearchVideos = async (title) => {
 
@@ -78,13 +63,21 @@ export const getSearchPictograms = async (title) => {
 }
 
 
+//Llamadas de favoritos
 
-
-export const postNewFavorite = async () => {
-
+export const postNewFavorite = async (body, token) => {
+    let config = {
+      
+        headers: { Authorization: `Bearer ${token}` }
+        
+    };
+    return await axios.post(`${root}favorites/`, body, config);
 }
-export const userFavorites = async () => {
-
+export const userFavorites = async (token, id) => {
+    let config = {
+        headers: { Authorization: `Bearer ${token}`}
+    }
+    return await axios.get(`${root}/user/${id}`, config)
 }
 export const getAllFavorites = async () => {
 

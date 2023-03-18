@@ -45,12 +45,12 @@ export const Header = () => {
             getSearchVideos(search)
                 .then(
                     resultado => {
-
+console.log(resultado, 'esto es el resultado en header 48');
                         //Guardo en REDUX..........
                         dispatch(find({ videos: resultado.data }))
                     }
                 )
-                .catch(error => console.log(error));
+                .catch(error => console.log(error, 'caracola'));
 
             //La condición de este else if nos indica que sólo entrará si la búsqueda está vacia y en redux no hay resultados
             //de búsquedas anteriores, eso nos OBLIGA a interpretar que antes se escribió algo para volver a dejarlo en las
@@ -59,7 +59,6 @@ export const Header = () => {
             // (search === "" && datosReduxVideos.videos.length > 0 || search === "" && datosReduxPictograms.pictograms.length > 0)
             //Si borramos lo que había escrito o no nay nada, limpiamos las series de REDUX
             dispatch(clear({ choosen: {}, videos: [] }));
-            // dispatch(clear({ choosen: {}, pictograms: [] }));
         }
 
     }, [search])
@@ -67,15 +66,14 @@ export const Header = () => {
     useEffect(() => {
 
         if (searchP !== "") {
-
             //Procedemos a buscar...
-
             //Llamamos a la funcion del servicio que busca
             getSearchPictograms(searchP)
                 .then(
                     resultado => {
                          //Guardo en REDUX..........
                         dispatch(find2({ pictograms: resultado.data }))
+                        console.log(resultado.data, 'esto es resultado.data');
                     }
                 )
                 .catch(error => console.log(error));
@@ -150,10 +148,7 @@ export const Header = () => {
                 />
             </div>
             <div className='headerLinksDesign'>
-                {/* Introducimos el logo, independientemente de lo que nos vaya a sacar después */}
-
                 {/* Renderizado condicional por si el usuario es admin y hay que mostrar la sección de Admin */}
-                {console.log(datosReduxUsuario.userPass.user.rolId, 'datos de usuario admin')}
                 {datosReduxUsuario.userPass.user.rolId === '63fdf0deffab09e161f5bfb8' &&
 
                     <div onClick={() => navigate("/admin")} className='linkDesign'>Admin</div>

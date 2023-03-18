@@ -156,9 +156,8 @@ export const Home = () => {
             <div>
                 <div className='rosterText'>PICTOGRAMAS</div>
                 <div className='rosterDesign'>
-                    {datosReduxPictograms.pictograms.length > 0 ? (
-// && datosReduxPictograms.pictograms.length < 20
-                        //Si entramos aqui es porque tenemos videos de Redux....
+                    {datosReduxPictograms.pictograms > 0 ? (
+                        //Si entramos aqui es porque tenemos pictogramas de Redux....
 
                         <div className='rosterDesign'>
 
