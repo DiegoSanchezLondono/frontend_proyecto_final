@@ -1,12 +1,6 @@
 
 import axios from 'axios';
-// import { useSelector } from 'react-redux';
-// import { userData } from '../pages/User/userSlice';
-
-// const detailUsr = useSelector(userData);
 const root = 'http://localhost:5500/'
-
-
 
 //llamadas de Usuario
 export const postLogin = async (credenciales) => {
@@ -80,5 +74,11 @@ export const userFavorites = async (token, id) => {
     return await axios.get(`${root}/user/${id}`, config)
 }
 export const getAllFavorites = async () => {
-
+    let config = {
+        //este sería mi endpoint del backend
+       headers: { 
+           'Authorization': 'Bearer ' + token
+         }
+   }
+    return await axios.get(`${root}/getAll`,config);
 }

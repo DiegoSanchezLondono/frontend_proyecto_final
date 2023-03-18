@@ -42,7 +42,7 @@ export const Profile = () => {
 
                     .then(
                         resultado => {
-
+console.log(resultado, 'resultado de profile');
                             setFavorites(resultado.data)
 
                         }
@@ -91,12 +91,12 @@ export const Profile = () => {
                             video => {
                                 return (
 
-                                    <div key={video._id}>
+                                    <div key={video.id}>
                                         <table>
                                             <tbody>
                                                 <tr>
                                                     <td> Titulo:
-                                                        {video.titleVideo}
+                                                        {video.title}
                                                     </td>
                                                     <td> Fecha:
                                                         {video.date}

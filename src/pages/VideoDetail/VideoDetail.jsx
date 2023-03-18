@@ -38,7 +38,7 @@ export const VideoDetail = () => {
                 //Esto se ejecutará si el pedido se ha realizado correctamente
                 //mostrando el mensaje
                 console.log(resultado, 'hjhjhjhjhjhjh');
-                setMsg(resultado.data);
+                setMsg(resultado.data.Message);
                 //Después de haber realizado el pedido, llevamos al user a su perfil
                 setTimeout(()=>{
                     navigate('/profile');
@@ -52,7 +52,14 @@ export const VideoDetail = () => {
         <div className='videoDesign'>
             {detailRdx.choosen.id !== '' &&
                 <div className='videoDetailCard'>
-                    <div><img className='detailUrl' src={`http://img.youtube.com/vi/${detailRdx.choosen.idYoutube}/1.jpg`}/></div>  
+                    <iframe width="560" 
+                        height="315" 
+                        src={`https://www.youtube.com/embed/${detailRdx.choosen.idYoutube}`} 
+                        title="YouTube video player" frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                        allowfullscreen>
+                    </iframe>
+                    {/* <div><img className='detailUrl' src={`http://img.youtube.com/vi/${detailRdx.choosen.idYoutube}/1.jpg`}/></div>   */}
                     <div>{detailRdx.choosen.title}</div>
                     <div>{detailRdx.choosen.summary !== '' ? detailRdx.choosen.summary : "No tiene descripcion"}</div>
 

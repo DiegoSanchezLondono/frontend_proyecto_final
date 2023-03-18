@@ -9,7 +9,7 @@
     height: 85vh;
     width: 100vw;
 
-    background-color: #76c1e6;
+    background-color:#76c1e6;
 
     color: rgb(0, 0, 0);
 
@@ -28,7 +28,7 @@
 
 }
 
-.detailUrl {
+.detailId {
 
     height: 40vh;
 
@@ -49,7 +49,7 @@
 
     padding: 0.7em;
     margin: 1em;
-    background-color: orangered;
+    background-color: #2d90f2;
 
     cursor: pointer;
 
@@ -60,5 +60,5 @@
 
 .likeDesign:hover {
     transition: 0.2s;
-    background-color: orange;
+    background-color: #2d90f2;
 }

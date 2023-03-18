@@ -45,7 +45,6 @@ export const Header = () => {
             getSearchVideos(search)
                 .then(
                     resultado => {
-console.log(resultado, 'esto es el resultado en header 48');
                         //Guardo en REDUX..........
                         dispatch(find({ videos: resultado.data }))
                     }
@@ -71,9 +70,9 @@ console.log(resultado, 'esto es el resultado en header 48');
             getSearchPictograms(searchP)
                 .then(
                     resultado => {
+                        console.log(resultado, 'resultado de la busqueda de pictogramas');
                          //Guardo en REDUX..........
-                        dispatch(find2({ pictograms: resultado.data }))
-                        console.log(resultado.data, 'esto es resultado.data');
+                        dispatch(find2({ pictograms: resultado.data}))
                     }
                 )
                 .catch(error => console.log(error));
@@ -140,7 +139,7 @@ console.log(resultado, 'esto es el resultado en header 48');
                 />
                   <InputText
                     type={"text"}
-                    name={"search"}
+                    name={"searchP"}
                     className={'inputDesign'}
                     placeholder={"Busca aquí Pictogramas"}
                     functionHandler={handleSearchP}

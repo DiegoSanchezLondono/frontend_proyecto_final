@@ -22,20 +22,12 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    font-size: 18px;
 
     height: 50vh;
     width: 75vw;
 
 }
-
-.detailImage {
-
-    height: 40vh;
-
-    border: 0.3em solid orangered;
-    border-radius: 0.8em;
-}
-
 .likeDesign {
 
     display: flex;

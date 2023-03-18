@@ -26,6 +26,7 @@ export const Home = () => {
     //Instanciamos los datos de los videos desde Redux
     const datosReduxVideos = useSelector(videoData);
     const datosReduxPictograms = useSelector(pictogramData);
+    console.log(datosReduxPictograms, 'GUGUGUGUGUGUGUGUGUGUG');
     //Instanciamos useNavigate en navigate para poder movernos por el router
     const navigate = useNavigate();
 
@@ -101,7 +102,7 @@ export const Home = () => {
 
     return (
         <>
-
+        <div className='row'>
             <div className='homeDesign'>
                 <div className='rosterText'>VIDEOS</div>
                 {datosReduxVideos.videos.length > 0 ? (
@@ -157,6 +158,7 @@ export const Home = () => {
                 <div className='rosterText'>PICTOGRAMAS</div>
                 <div className='rosterDesign'>
                     {datosReduxPictograms.pictograms > 0 ? (
+                        // && datosReduxPictograms.pictograms.length < 20
                         //Si entramos aqui es porque tenemos pictogramas de Redux....
 
                         <div className='rosterDesign'>
@@ -186,6 +188,7 @@ export const Home = () => {
                     }
                 </div>
             </div>
+        </div>
         </>
     );
 };

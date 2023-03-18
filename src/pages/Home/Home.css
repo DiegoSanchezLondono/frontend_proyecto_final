@@ -6,7 +6,7 @@
     justify-content: center;
     align-items: center;
 
-    height: 85vh;
+    height: 75vh;
     width: 100vw;
 
     background-color: #76c1e6;
@@ -22,7 +22,6 @@
 
 }
 .rosterText {
-    padding-top: 22vh;
     text-align: center;
     color: blue;
 }
@@ -45,7 +44,6 @@
     justify-content: center;
     align-items: center;
 
-    height: 85vh;
     width: 100vw;
 
     background-color: #76c1e6;
