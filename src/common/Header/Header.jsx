@@ -27,6 +27,7 @@ export const Header = () => {
         user: {}
     }
     //Hook para la búsqueda
+    const [msg, setMsg] = useState('');
     const [search, setSearch] = useState([]);
     const [searchP, setSearchP] = useState([]);
 
@@ -49,7 +50,10 @@ export const Header = () => {
                         dispatch(find({ videos: resultado.data }))
                     }
                 )
-                .catch(error => console.log(error, 'caracola'));
+                .catch(error => {
+
+                    setMsg(error.message);
+                });
 
             //La condición de este else if nos indica que sólo entrará si la búsqueda está vacia y en redux no hay resultados
             //de búsquedas anteriores, eso nos OBLIGA a interpretar que antes se escribió algo para volver a dejarlo en las
@@ -75,7 +79,10 @@ export const Header = () => {
                         dispatch(find2({ pictograms: resultado.data}))
                     }
                 )
-                .catch(error => console.log(error));
+                .catch(error => {
+
+                    setMsg(error.message);
+                });
 
         } else if (searchP === "" && datosReduxPictograms.pictograms.length > 0 ) {
             dispatch(clear2({ choosen: {}, pictograms: [] }));
@@ -110,13 +117,12 @@ export const Header = () => {
 
         //primero limpiamos búsquedas posibles de Redux
         dispatch(clear({ choosen: {}, videos: [] }));
-        dispatch(clear({ choosen: {}, pictograms: [] }));
+        dispatch(clear2({ choosen: {}, pictograms: [] }));
 
         //redirigimos a Home
         navigate("/")
 
     }
-
     const searchErrorHandler = (e) => {
         console.log(e, "este es el error del manejador");
     }

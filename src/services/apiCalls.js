@@ -73,11 +73,11 @@ export const userFavorites = async (token, id) => {
     }
     return await axios.get(`${root}/user/${id}`, config)
 }
-export const getAllFavorites = async () => {
+export const getAllFavorites = async (token) => {
     let config = {
         //este sería mi endpoint del backend
        headers: { 
-           'Authorization': 'Bearer ' + token
+           'Authorization': `Bearer ${token}`
          }
    }
     return await axios.get(`${root}/getAll`,config);

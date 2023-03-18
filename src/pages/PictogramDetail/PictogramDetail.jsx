@@ -84,7 +84,7 @@ import { useSelector } from "react-redux";
 import { pictogramData } from '../pictogramSlice';
 import { userData } from '../User/userSlice';
 import { postNewFavorite } from '../../services/apiCalls';
-// import { url_default } from  '../../services/utiles'
+
 export const PictogramDetail = () => {
 
 
@@ -134,8 +134,8 @@ console.log(detailRdx, 'lo que tengo de pictograma');
             {detailRdx.choosen.id !== '' &&
             
                 <div className='pictogramDetailCard'>
-                    <div>{detailRdx.choosen.keyword}</div>
-                    <div><img className='detailId' src={`https://api.arasaac.org/api/pictograms/${detailRdx.choosen.id}`}/></div>
+                    <div>{detailRdx.choosen.keywords}</div> 
+                    <div><img className='detailId' src={`https://api.arasaac.org/api/pictograms/38811`}/></div>
                     <div>{detailRdx.choosen.meaning !== '' ? detailRdx.choosen.meaning : "No tiene descripcion"}</div>
 
                     {/* En caso de que el usuario esté logeado, es decir, tenemos sus credenciales en REDUX, mostraremos
@@ -145,7 +145,7 @@ console.log(detailRdx, 'lo que tengo de pictograma');
                     
                         <div onClick={()=>Like()} className='likeDesign'>LIKE</div>
                     }
-                     <div>{msg}</div> 
+                     {/* <div>{msg}</div>  */}
                
                 </div>
             

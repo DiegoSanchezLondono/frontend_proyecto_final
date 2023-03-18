@@ -11,7 +11,7 @@
     height: 13em;
     width: 8em;
 
-    background-color: rgb(255, 255, 255);
+    background-color: #2d90f2;
 
     color: rgb(0, 0, 0);
 
@@ -25,16 +25,7 @@
     transition: 0.2s;
     background-color:#76c1e6;
 }
-
-.imageDesign {
-
-    border: 0.1em solid orangered;
-    border-radius: 0.5em;
-
-    height: 8em;
-    width: 6em;
-}
 .text {
-
+    
     text-align: center;
 }

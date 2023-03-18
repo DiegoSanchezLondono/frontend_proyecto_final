@@ -26,7 +26,7 @@ export const Home = () => {
     //Instanciamos los datos de los videos desde Redux
     const datosReduxVideos = useSelector(videoData);
     const datosReduxPictograms = useSelector(pictogramData);
-    console.log(datosReduxPictograms, 'GUGUGUGUGUGUGUGUGUGUG');
+    //console.log(datosReduxPictograms, 'GUGUGUGUGUGUGUGUGUGUG');
     //Instanciamos useNavigate en navigate para poder movernos por el router
     const navigate = useNavigate();
 
@@ -91,7 +91,7 @@ export const Home = () => {
 
         //El primer paso ahora será guardar en Redux el pictograma escogido
         dispatch(select({ P: pictogram }))
-
+console.log(pictogram, 'pictogram');
         //Después de haber guardado ....... redirecciono a la vista o container del detalle del pictograma
 
         setTimeout(() => {
@@ -165,6 +165,7 @@ export const Home = () => {
 
                             {datosReduxPictograms.pictograms.slice(0, 20).map(
                                 pictogram => {
+                                    console.log(pictogram, 'pictogram2');
                                     return (
                                         <div onClick={() => Choosen(pictogram)} key={pictogram.id}>
                                             <CardPictogram pictogram={pictogram} />

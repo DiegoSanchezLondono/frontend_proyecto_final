@@ -1,47 +1,3 @@
-/* .adminDesign {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
-    padding-top: 5px;
-
-    font-weight: bold;
-    color: rgb(0, 0, 0);
-
-    background-color: #76c1e6;
-}
-.favoriteVideo {
-
-    border: 0.1em solid #003db0;
-    background-color: black;
-
-    margin-bottom: 1em;
-    padding: 1em;
-    
-    width: 300px;
-
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-}
-.favoritePictogram {
-
-    border: 0.1em solid #003db0;
-    background-color: black;
-
-    margin-bottom: 1em;
-    padding: 1em;
-    
-    width: 300px;
-
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-} */
-
 
 .adminDesign {
 
@@ -58,15 +14,6 @@
 
     background-color: #76c1e6;
 }
-/* .favoriteVideo {
-
-    color: rgb(0, 0, 0);
-}
-.favoritePictogram {
-
-    color: rgb(0, 0, 0);
-} */
-
 .favoriteVideo {
 
     border: 0.1em solid #003db0;

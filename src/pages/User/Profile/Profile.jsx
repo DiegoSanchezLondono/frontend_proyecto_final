@@ -38,13 +38,9 @@ export const Profile = () => {
             setTimeout(() => {
 
                 userFavorites(userRDX.userPass.token, userRDX.userPass.user._id)
-
-
                     .then(
                         resultado => {
-console.log(resultado, 'resultado de profile');
                             setFavorites(resultado.data)
-
                         }
                     )
                     .catch(error => console.log(error));
