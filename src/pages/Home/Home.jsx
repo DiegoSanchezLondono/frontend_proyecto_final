@@ -165,7 +165,7 @@ console.log(pictogram, 'pictogram');
                                 pictogram => {
                                     //console.log(pictogram, 'pictogram paso 1');
                                     return (
-                                        <div onClick={() => Choosen(pictogram)} key={pictogram._id}>
+                                        <div onClick={() => P(pictogram)} key={pictogram._id}>
                                             <CardPictogram pictogram={pictogram} />
                                         </div>
                                     )

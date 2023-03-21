@@ -16,7 +16,7 @@ export const Profile = () => {
     //Instancio useNavigate
     const navigate = useNavigate();
 
-    const [favorites, setFavorites] = useState([]);
+    const [myFavorites, setFavorites] = useState([]);
     //Instancio RDX
     const userRDX = useSelector(userData);
 console.log(userRDX, 'esto es userData')
@@ -33,7 +33,7 @@ console.log(userRDX, 'esto es userData')
 
 
     useEffect(() => {
-        if (favorites.length === 0) {
+        if (myFavorites.length === 0) {
 
             setTimeout(() => {
 
@@ -47,7 +47,7 @@ console.log(userRDX, 'esto es userData')
                     .catch(error => console.log(error));
             }, 500);
         }
-    }, [favorites]);
+    }, [myFavorites]);
 
     return (
         <>
@@ -81,13 +81,12 @@ console.log(userRDX, 'esto es userData')
                     <h2>MIS FAVORITOS</h2>
                 </div>
                 <div className='dataDesign'>
-{console.log(favorites, 'esto es favoritos')}
-                    {favorites.length > 0 &&
-                        favorites.map(
+{console.log(myFavorites, 'esto son mis favoritos')}
+                    {myFavorites.length > 0 &&
+                        myFavorites.map(
 
                             video => {
                                 return (
-
                                     <div key={video.id}>
                                         <table>
                                             <tbody>
@@ -109,12 +108,12 @@ console.log(userRDX, 'esto es userData')
                 </div>
                 <div className='dataDesign'>
 
-                    {favorites.length > 0 &&
-                        favorites.map(
+                    {myFavorites.length > 0 &&
+                        myFavorites.map(
 
                             pictogram => {
                                 return (
-                                    <div key={pictogram._id}>
+                                    <div key={pictogram.id}>
                                         <table>
                                             <tbody>
                                                 <tr>

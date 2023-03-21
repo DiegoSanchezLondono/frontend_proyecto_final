@@ -51,11 +51,9 @@ export const Admin = () => {
                     user => {
                         return (
                             <div className='user'>
-                                <div><strong>Nombre:</strong>{user.name} {user.surname}</div>
-
-                                <div><strong>Email:</strong>{user.email}</div>
-
-                                <div><strong>Pais:</strong>{user.country}</div>
+                                <div><strong>Nombre: </strong>{user.name} {user.surname}</div>
+                                <div><strong>Email: </strong>{user.email}</div>
+                                <div><strong>Pais de Residencia: </strong>{user.country}</div>
                             </div>
 
                         )

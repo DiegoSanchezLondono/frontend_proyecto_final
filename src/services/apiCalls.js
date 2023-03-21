@@ -18,7 +18,7 @@ export const getAllUsers = async (token) => {
     let config = {
 
         method: 'get', //aqui especifico el protocolo http
-        url : `${root}/users`, //este sería mi endpoint del backend de admin que trae todos los users
+        url : `${root}users`, //este sería mi endpoint del backend de admin que trae todos los users
       
         headers: { 
             'Authorization': 'Bearer ' + token
