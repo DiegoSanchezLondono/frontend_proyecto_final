@@ -59,7 +59,6 @@ export const Header = () => {
             //de búsquedas anteriores, eso nos OBLIGA a interpretar que antes se escribió algo para volver a dejarlo en las
             //comillas vacias.
         } else if (search === "" && datosReduxVideos.videos.length > 0 ) {
-            // (search === "" && datosReduxVideos.videos.length > 0 || search === "" && datosReduxPictograms.pictograms.length > 0)
             //Si borramos lo que había escrito o no nay nada, limpiamos las series de REDUX
             dispatch(clear({ choosen: {}, videos: [] }));
         }
@@ -74,7 +73,7 @@ export const Header = () => {
             getSearchPictograms(searchP)
                 .then(
                     resultado => {
-                        console.log(resultado, 'resultado de la busqueda de pictogramas');
+                        //console.log(resultado, 'resultado de la busqueda de pictogramas');
                          //Guardo en REDUX..........
                         dispatch(find2({ pictograms: resultado.data}))
                     }
@@ -123,6 +122,7 @@ export const Header = () => {
         navigate("/")
 
     }
+    
     const searchErrorHandler = (e) => {
         console.log(e, "este es el error del manejador");
     }
@@ -143,14 +143,14 @@ export const Header = () => {
                     functionHandler={handleSearch}
                     errorHandler={searchErrorHandler}
                 />
-                  <InputText
+                   <InputText
                     type={"text"}
                     name={"searchP"}
                     className={'inputDesign'}
                     placeholder={"Busca aquí Pictogramas"}
                     functionHandler={handleSearchP}
                     errorHandler={searchErrorHandler}
-                />
+                /> 
             </div>
             <div className='headerLinksDesign'>
                 {/* Renderizado condicional por si el usuario es admin y hay que mostrar la sección de Admin */}

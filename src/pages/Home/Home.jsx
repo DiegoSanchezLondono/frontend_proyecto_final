@@ -13,7 +13,7 @@ import { useNavigate } from 'react-router-dom';
 //RDX imports......
 import { useSelector, useDispatch } from "react-redux";
 import { videoData, select } from '../videoSlice';
-import { pictogramData } from '../pictogramSlice';
+import { pictogramData, select as select2 } from '../pictogramSlice';
 
 
 export const Home = () => {
@@ -26,7 +26,6 @@ export const Home = () => {
     //Instanciamos los datos de los videos desde Redux
     const datosReduxVideos = useSelector(videoData);
     const datosReduxPictograms = useSelector(pictogramData);
-    //console.log(datosReduxPictograms, 'GUGUGUGUGUGUGUGUGUGUG');
     //Instanciamos useNavigate en navigate para poder movernos por el router
     const navigate = useNavigate();
 
@@ -90,7 +89,7 @@ export const Home = () => {
     const P = (pictogram) => {
 
         //El primer paso ahora será guardar en Redux el pictograma escogido
-        dispatch(select({ P: pictogram }))
+        dispatch(select2({ P: pictogram }))
 console.log(pictogram, 'pictogram');
         //Después de haber guardado ....... redirecciono a la vista o container del detalle del pictograma
 
@@ -157,17 +156,16 @@ console.log(pictogram, 'pictogram');
             <div>
                 <div className='rosterText'>PICTOGRAMAS</div>
                 <div className='rosterDesign'>
-                    {datosReduxPictograms.pictograms > 0 ? (
+                    {datosReduxPictograms.pictograms.length > 0 ? (
                         // && datosReduxPictograms.pictograms.length < 20
                         //Si entramos aqui es porque tenemos pictogramas de Redux....
 
                         <div className='rosterDesign'>
-
                             {datosReduxPictograms.pictograms.slice(0, 20).map(
                                 pictogram => {
-                                    console.log(pictogram, 'pictogram2');
+                                    //console.log(pictogram, 'pictogram paso 1');
                                     return (
-                                        <div onClick={() => Choosen(pictogram)} key={pictogram.id}>
+                                        <div onClick={() => Choosen(pictogram)} key={pictogram._id}>
                                             <CardPictogram pictogram={pictogram} />
                                         </div>
                                     )
@@ -179,7 +177,7 @@ console.log(pictogram, 'pictogram');
                             CardData.map(
                                 pictogram => {
                                     return (
-                                        <div onClick={() => P(pictogram)} key={pictogram.id}>
+                                        <div onClick={() => P(pictogram)} key={pictogram._id}>
                                             <CardPictogram pictogram={pictogram} />
                                         </div>
                                     )

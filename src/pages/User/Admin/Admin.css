@@ -14,7 +14,7 @@
 
     background-color: #76c1e6;
 }
-.favoriteVideo {
+.user {
 
     border: 0.1em solid #003db0;
     background-color: black;
@@ -29,18 +29,3 @@
     justify-content: center;
     align-items: center;
 }
-.favoritePictogram {
-
-    border: 0.1em solid #003db0;
-    background-color: black;
-
-    margin-bottom: 1em;
-    padding: 1em;
-    
-    width: 300px;
-
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-} 

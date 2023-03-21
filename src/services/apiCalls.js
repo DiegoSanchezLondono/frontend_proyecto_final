@@ -11,7 +11,7 @@ export const postRegister = async (usuario) => {
     //A continuación vemos como se enviaría el body por axios para el registro
     return await axios.post(`${root}users/register`, usuario)
 }
-export const getallUsers = async (token) => {
+export const getAllUsers = async (token) => {
 
     //Esta sería la forma en la que conectaríamos con la API para traernos todos los users en modo admin
     
@@ -27,7 +27,7 @@ export const getallUsers = async (token) => {
           
     }
 
-    return await axios.get(config);
+    return await axios(config);
 }
 
 //llamadas de videos
@@ -52,8 +52,12 @@ export const getPictogram = async () => {
     return await axios.get(`https://api.arasaac.org/api/pictograms/es/new/20`);
 }
 export const getSearchPictograms = async (title) => {
-
-    return await axios.get(`https://api.arasaac.org/api/pictograms/es/search/${title}`);
+    try {
+        return await axios.get(`https://api.arasaac.org/api/pictograms/es/search/${title}`);
+    }
+    catch {
+        return {data:[]};
+    }
 }
 
 
@@ -67,11 +71,11 @@ export const postNewFavorite = async (body, token) => {
     };
     return await axios.post(`${root}favorites/`, body, config);
 }
-export const userFavorites = async (token, id) => {
+export const userFavorites = async (token) => {
     let config = {
         headers: { Authorization: `Bearer ${token}`}
     }
-    return await axios.get(`${root}/user/${id}`, config)
+    return await axios.get(`${root}favorites`, config)
 }
 export const getAllFavorites = async (token) => {
     let config = {

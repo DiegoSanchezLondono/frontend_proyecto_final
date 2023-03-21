@@ -19,7 +19,7 @@ export const Profile = () => {
     const [favorites, setFavorites] = useState([]);
     //Instancio RDX
     const userRDX = useSelector(userData);
-
+console.log(userRDX, 'esto es userData')
     useEffect(() => {
 
         if (userRDX.userPass.token === '') {
@@ -40,6 +40,7 @@ export const Profile = () => {
                 userFavorites(userRDX.userPass.token, userRDX.userPass.user._id)
                     .then(
                         resultado => {
+                            console.log(resultado, 'llllllll');
                             setFavorites(resultado.data)
                         }
                     )
@@ -80,7 +81,7 @@ export const Profile = () => {
                     <h2>MIS FAVORITOS</h2>
                 </div>
                 <div className='dataDesign'>
-
+{console.log(favorites, 'esto es favoritos')}
                     {favorites.length > 0 &&
                         favorites.map(
 
@@ -118,7 +119,7 @@ export const Profile = () => {
                                             <tbody>
                                                 <tr>
                                                     <td> Nombre:
-                                                        {pictogram.namePictogram}
+                                                        {pictogram.name}
                                                     </td>
                                                     <td> Fecha:
                                                         {pictogram.date}

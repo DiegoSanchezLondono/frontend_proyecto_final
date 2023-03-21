@@ -9,7 +9,6 @@ export const CardPictogram = ({ pictogram }) => {
 
             <img className='urlDesign' src={`https://api.arasaac.org/api/pictograms/${pictogram._id}`} />
             <div key={pictogram._id}>{pictogram.keywords[0].keyword}</div>
-
         </div>
     )
 }

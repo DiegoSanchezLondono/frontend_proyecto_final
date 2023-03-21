@@ -7,12 +7,13 @@ import { useNavigate } from 'react-router-dom';
 //Imports RDX
 import { useSelector } from "react-redux";
 import { userData } from '../userSlice';
-import { getAllFavorites } from '../../../services/apiCalls';
+import { getAllUsers } from '../../../services/apiCalls';
 
 
 
 export const Admin = () => {
 
+    let firstTime = true;
     const detailUsr = useSelector(userData);
 
     //Instancio useNavigate
@@ -22,7 +23,7 @@ export const Admin = () => {
     const userRDX = useSelector(userData);
 
 
-    const [allFavorites, setAllFavorites] = useState([]);
+    const [allUsers, setAllUsers] = useState([]);
 
     useEffect(() => {
         //Me conecto a redux para ver las credenciales de usuario y comprobar que su rol es admin...
@@ -32,53 +33,35 @@ export const Admin = () => {
     }, [])
 
     useEffect(() => {
-        if (allFavorites.length > 0) {
-            getAllFavorites(detailUsr.userPass.token)
+        if (allUsers.length == 0) {
+            getAllUsers(detailUsr.userPass.token)
                 .then(resultado => {
+                    console.log(resultado, 'este es el resultado');
                     //seteo el hook de los usuarios...
-                    setAllFavorites(resultado.data);
+                    setAllUsers(resultado.data);
                 })
         }
-    }, [allFavorites]);
+    }, [allUsers]);
 
     return (
-        <>
-            <div className='adminDesign'>
-                {allFavorites.length > 0 &&
-                    allFavorites.map(
-                        video => {
-                            return (
-                                <div className='favoriteVideo'>
-                                    <div><strong>Titulo:</strong>{video.videoId.title}</div>
+        <div className='adminDesign'>
+            {console.log(allUsers, 'usuarios')}
+            {allUsers.length > 0 &&
+                allUsers.map(
+                    user => {
+                        return (
+                            <div className='user'>
+                                <div><strong>Nombre:</strong>{user.name} {user.surname}</div>
 
-                                    <div><strong>Usuario:</strong>{video.userId.name} {video.userId.surname}</div>
+                                <div><strong>Email:</strong>{user.email}</div>
 
-                                    <div><strong>Fecha:</strong>{video.date}</div>
-                                </div>
+                                <div><strong>Pais:</strong>{user.country}</div>
+                            </div>
 
-                            )
-                        }
-                    )
-                }
-            </div>
-            <div className='adminDesign'>
-                {allFavorites.length > 0 &&
-                    allFavorites.map(
-                        pictogram => {
-                            return (
-                                <div className='favoritePictogram'>
-                                    <div><strong>Nombre:</strong>{pictogram.pictogramId.keyword}</div>
-
-                                    <div><strong>Usuario:</strong>{pictogram.userId.name} {pictogram.userId.surname}</div>
-
-                                    <div><strong>Fecha:</strong>{pictogram.fecha}</div>
-                                </div>
-
-                            )
-                        }
-                    )
-                }
-            </div>
-        </>
+                        )
+                    }
+                )
+            }
+        </div>
     )
 };
