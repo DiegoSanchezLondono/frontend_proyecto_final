@@ -12,16 +12,11 @@ import { getAllUsers } from '../../../services/apiCalls';
 
 
 export const Admin = () => {
-
-    let firstTime = true;
     const detailUsr = useSelector(userData);
-
     //Instancio useNavigate
     const navigate = useNavigate();
-
     //Instancio RDX
     const userRDX = useSelector(userData);
-
 
     const [allUsers, setAllUsers] = useState([]);
 
@@ -36,7 +31,6 @@ export const Admin = () => {
         if (allUsers.length == 0) {
             getAllUsers(detailUsr.userPass.token)
                 .then(resultado => {
-                    console.log(resultado, 'este es el resultado');
                     //seteo el hook de los usuarios...
                     setAllUsers(resultado.data);
                 })
@@ -45,7 +39,6 @@ export const Admin = () => {
 
     return (
         <div className='adminDesign'>
-            {console.log(allUsers, 'usuarios')}
             {allUsers.length > 0 &&
                 allUsers.map(
                     user => {
