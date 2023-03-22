@@ -101,13 +101,13 @@ console.log(pictogram, 'pictogram');
 
     return (
         <>
-            <div className='homeDesign col-xs-12 col-sm-10 col-md-10 col-lg-10'>
-                <div className='rosterText col-xs-12 col-sm-10 col-md-10 col-lg-10'><h1 className='videos'>VIDEOS</h1></div>
+            <div className='homeDesign'>
+                <div className='rosterText'><h1 className='videos'>VIDEOS</h1></div>
                 {datosReduxVideos.videos.length > 0 ? (
 
                     //Si entramos aqui es porque tenemos videos de Redux....
 
-                    <div className='rosterDesign col-xs-12 col-sm-10 col-md-10 col-lg-10'>
+                    <div className='rosterDesign'>
 
                         {datosReduxVideos.videos.map(
                             video => {
@@ -127,7 +127,7 @@ console.log(pictogram, 'pictogram');
                             // Ya que el hook si contiene los videos, es momento de mapearlos
                             // y poder mostrarlos en pantalla
 
-                            <div className='rosterDesign col-xs-12 col-sm-10 col-md-10 col-lg-10'>
+                            <div className='rosterDesign'>
                                 {videos.map(
                                     video => {
                                         return (
@@ -150,9 +150,9 @@ console.log(pictogram, 'pictogram');
                 }
 
             </div>
-            <div>
-                <div className='rosterText col-xs-12 col-sm-10 col-md-10 col-lg-10'><h1 className='pictogramas'>PICTOGRAMAS</h1></div>
-                <div className='rosterDesign col-xs-12 col-sm-10 col-md-10 col-lg-10'>
+            <div className='homeDesign2'>
+                <div className='rosterText'><h1 className='pictogramas'>PICTOGRAMAS</h1></div>
+                <div className='rosterDesign'>
                     {datosReduxPictograms.pictograms.length > 0 ? (
                         // && datosReduxPictograms.pictograms.length < 20
                         //Si entramos aqui es porque tenemos pictogramas de Redux....
