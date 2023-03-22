@@ -101,14 +101,13 @@ console.log(pictogram, 'pictogram');
 
     return (
         <>
-        <div className='row'>
-            <div className='homeDesign'>
-                <div className='rosterText'>VIDEOS</div>
+            <div className='homeDesign col-xs-12 col-sm-10 col-md-10 col-lg-10'>
+                <div className='rosterText col-xs-12 col-sm-10 col-md-10 col-lg-10'><h1 className='videos'>VIDEOS</h1></div>
                 {datosReduxVideos.videos.length > 0 ? (
 
                     //Si entramos aqui es porque tenemos videos de Redux....
 
-                    <div className='rosterDesign'>
+                    <div className='rosterDesign col-xs-12 col-sm-10 col-md-10 col-lg-10'>
 
                         {datosReduxVideos.videos.map(
                             video => {
@@ -120,8 +119,6 @@ console.log(pictogram, 'pictogram');
                             }
                         )}
                     </div>
-
-
                 ) :
 
                     (
@@ -130,7 +127,7 @@ console.log(pictogram, 'pictogram');
                             // Ya que el hook si contiene los videos, es momento de mapearlos
                             // y poder mostrarlos en pantalla
 
-                            <div className='rosterDesign'>
+                            <div className='rosterDesign col-xs-12 col-sm-10 col-md-10 col-lg-10'>
                                 {videos.map(
                                     video => {
                                         return (
@@ -154,13 +151,13 @@ console.log(pictogram, 'pictogram');
 
             </div>
             <div>
-                <div className='rosterText'>PICTOGRAMAS</div>
-                <div className='rosterDesign'>
+                <div className='rosterText col-xs-12 col-sm-10 col-md-10 col-lg-10'><h1 className='pictogramas'>PICTOGRAMAS</h1></div>
+                <div className='rosterDesign col-xs-12 col-sm-10 col-md-10 col-lg-10'>
                     {datosReduxPictograms.pictograms.length > 0 ? (
                         // && datosReduxPictograms.pictograms.length < 20
                         //Si entramos aqui es porque tenemos pictogramas de Redux....
 
-                        <div className='rosterDesign'>
+                        <div className='rosterDesign col-xs-12 col-sm-10 col-md-10 col-lg-10'>
                             {datosReduxPictograms.pictograms.slice(0, 20).map(
                                 pictogram => {
                                     //console.log(pictogram, 'pictogram paso 1');
@@ -187,7 +184,6 @@ console.log(pictogram, 'pictogram');
                     }
                 </div>
             </div>
-        </div>
         </>
     );
 };

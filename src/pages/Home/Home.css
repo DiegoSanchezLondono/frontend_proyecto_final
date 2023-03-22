@@ -21,9 +21,85 @@
     flex-direction: row;
 
 }
+.videos {
+    
+    font-size: 40px;
+}
+.pictogramas {
+    
+    font-size: 40px;
+}
+@media only screen and (max-width: 1201px) {
+    .rosterDesign{
+        height: 66em;
+        width: 50em;
+        font-size: smaller;
+        text-align: center;
+        word-wrap: break-word;
+        display: flex;
+        flex-wrap: wrap;
+    }
+}
+
+@media only screen and (max-width: 820px) {
+    .rosterDesign{
+        height: 63em;
+        width: 53em;
+        display: flex;
+        flex-wrap: wrap;
+
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .rosterDesign{
+        height: 60em;
+        width: 44em;
+        display: flex;
+        flex-wrap: wrap;
+
+        
+    }
+}
+
+@media only screen and (max-width: 668px) {
+    .rosterDesign{
+        height: 58em;
+        width: 29em;
+        display: flex;
+        flex-wrap: wrap;
+    }
+}
+
+@media only screen and (max-width: 560px) {
+    .rosterDesign{
+        height: 61em;
+        width: 18em;
+        display: flex;
+        flex-wrap: wrap;
+    }
+}
+
+@media only screen and (max-width: 243px) {
+    .rosterDesign {
+        height: 61em;
+        width: 9em;
+        display: flex;
+        flex-wrap: wrap;
+    }
+}
+
+.design{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
 .rosterText {
     text-align: center;
     color: blue;
+    margin-top: 15em;
 }
 
 .loadingGif {

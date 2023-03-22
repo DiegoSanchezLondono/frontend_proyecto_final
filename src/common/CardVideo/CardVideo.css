@@ -38,3 +38,41 @@
 
     text-align: center;
 }
+
+@media only screen and (max-width: 1201px) {
+    .CardVideoDesign .urlDesign{
+        height: 12em;
+        width: 8em;
+        font-size: smaller;
+        text-align: center;
+        word-wrap: break-word;
+    }
+}
+@media only screen and (max-width: 820px) {
+    .CardVideoDesign .urlDesign{
+        height: 10em;
+        width: 8em;
+        font-size: smaller;
+        text-align: center;
+        word-wrap: break-word;
+    }
+}
+@media only screen and (max-width: 768px) {
+    .CardVideoDesign .urlDesign{
+        height: 10em;
+        width: 7em;
+        font-size: smaller;
+        text-align: center;
+        word-wrap: break-word;
+        image-rendering: auto;
+    }
+}
+@media only screen and (max-width: 560px) {
+    .CardVideoDesign .urlDesign{
+        height: 8em;
+        width: 6em;
+        font-size: smaller;
+        text-align: center;
+        word-wrap: break-word;
+    }
+}
