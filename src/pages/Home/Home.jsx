@@ -34,8 +34,7 @@ export const Home = () => {
     const [CardData, setCardData] = useState([]);
 
     useEffect(() => {
-
-        if (videos.length === 0) {
+        if (datosReduxVideos.videos.length === 0) {
 
             setTimeout(() => {
 
@@ -45,13 +44,13 @@ export const Home = () => {
                             setVideos(resultado.data);
                         }
                     )
-                    .catch(error => console.log(error, 'tatatatata'));
+                    .catch(error => console.log(error));
 
             }, 1000);
 
         };
 
-    }, [videos]);
+    }, []);
 
     useEffect(() => {
 
@@ -65,7 +64,7 @@ export const Home = () => {
                             setCardData(resultado.data);
                         }
                     )
-                    .catch(error => console.log(error, 'klklklkl'));
+                    .catch(error => console.log(error));
 
             }, 1000);
 
@@ -157,7 +156,7 @@ console.log(pictogram, 'pictogram');
                         // && datosReduxPictograms.pictograms.length < 20
                         //Si entramos aqui es porque tenemos pictogramas de Redux....
 
-                        <div className='rosterDesign col-xs-12 col-sm-10 col-md-10 col-lg-10'>
+                        <div className='rosterDesign'>
                             {datosReduxPictograms.pictograms.slice(0, 20).map(
                                 pictogram => {
                                     //console.log(pictogram, 'pictogram paso 1');

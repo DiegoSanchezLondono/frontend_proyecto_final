@@ -131,6 +131,7 @@ export const Header = () => {
     //Primero, en caso de que el token contenga algo que no sean comillas vacias, mostrar la opcion de logout y el nombre de usuario
 
     return (
+        
         <div className='headerDesign'>
             <div onClick={() => ResetHome()} className='homeDesignHeader'><img className='homeAvatar' src={Logo} alt="home" /></div>
             <div className='searchDesign'>

@@ -9,17 +9,18 @@ import { useNavigate } from 'react-router-dom';
 //primero importo métodos que me permitirán conectarme para leer y modificar en redux
 import { useSelector } from "react-redux";
 import { userData } from '../userSlice';
-import { userFavorites } from '../../../services/apiCalls';
+import { getAllFavoritesUser } from '../../../services/apiCalls';
 
 export const Profile = () => {
 
     //Instancio useNavigate
     const navigate = useNavigate();
 
-    const [myFavorites, setFavorites] = useState([]);
+    const [myFavoritesVideo, setFavoritesVideo] = useState([]);
+    const [myFavoritesPictogram, setFavoritesPictogram] = useState([]);
     //Instancio RDX
     const userRDX = useSelector(userData);
-console.log(userRDX, 'esto es userData')
+
     useEffect(() => {
 
         if (userRDX.userPass.token === '') {
@@ -33,24 +34,40 @@ console.log(userRDX, 'esto es userData')
 
 
     useEffect(() => {
-        if (myFavorites.length === 0) {
+        if (myFavoritesVideo.length === 0) {
 
             setTimeout(() => {
 
-                userFavorites(userRDX.userPass.token, userRDX.userPass.user._id)
+                getAllFavoritesUser(userRDX.userPass.token, 'video')
                     .then(
                         resultado => {
-                            console.log(resultado, 'llllllll');
-                            setFavorites(resultado.data)
+                            setFavoritesVideo(resultado.data)
                         }
                     )
                     .catch(error => console.log(error));
             }, 500);
         }
-    }, [myFavorites]);
+    }, [myFavoritesVideo]);
+
+    useEffect(() => {
+        if (myFavoritesPictogram.length === 0) {
+
+            setTimeout(() => {
+
+                getAllFavoritesUser(userRDX.userPass.token, 'pictogram')
+                    .then(
+                        resultado => {
+                            setFavoritesPictogram(resultado.data)
+                        }
+                    )
+                    .catch(error => console.log(error));
+            }, 500);
+        }
+    }, [myFavoritesPictogram]);
 
     return (
         <>
+        <div className='container-flex'>
             <div className='profileDesign'>
                 <h2>DATOS DE USUARIO</h2>
                 <div>
@@ -77,55 +94,55 @@ console.log(userRDX, 'esto es userData')
                 <div className='dataDesign'>
                     {userRDX.userPass.user.country}
                 </div>
+            </div>
+            <div className='profileDesign2'>
                 <div>
                     <h2>MIS FAVORITOS</h2>
                 </div>
-                <div className='dataDesign'>
-{console.log(myFavorites, 'esto son mis favoritos')}
-                    {myFavorites.length > 0 &&
-                        myFavorites.map(
+                <div className='dataDesign2'>
+                    {myFavoritesVideo.length > 0 &&
+                        myFavoritesVideo.map(
 
                             video => {
                                 return (
                                     <div key={video.id}>
-                                        <table>
-                                            <tbody>
-                                                <tr>
-                                                    <td> Titulo:
-                                                        {video.title}
-                                                    </td>
-                                                    <td> Fecha:
-                                                        {video.date}
-                                                    </td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
+                                        <div className='titulos'>
+                                            TITULO DEL VIDEO:
+                                        </div>
+                                        <div>
+                                            {video.videoId.title}
+                                        </div>
+                                        <div className='titulos'>
+                                            IMAGEN DESCRIPTIVA:
+                                        </div>
+                                        <div>
+                                            <img className='urlDesign' src={`http://img.youtube.com/vi/${video.videoId.idYoutube}/1.jpg`}/>
+                                        </div>
                                     </div>
                                 )
                             }
                         )
                     }
                 </div>
-                <div className='dataDesign'>
-
-                    {myFavorites.length > 0 &&
-                        myFavorites.map(
+                <div className='dataDesign2'>
+                    {myFavoritesPictogram.length > 0 &&
+                        myFavoritesPictogram.map(
 
                             pictogram => {
                                 return (
                                     <div key={pictogram.id}>
-                                        <table>
-                                            <tbody>
-                                                <tr>
-                                                    <td> Nombre:
-                                                        {pictogram.name}
-                                                    </td>
-                                                    <td> Fecha:
-                                                        {pictogram.date}
-                                                    </td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
+                                       <div className='titulos'>
+                                            NOMBRE DEL PICTOGRAMA:
+                                       </div>
+                                       <div>
+                                            {pictogram.pictogram}
+                                       </div>
+                                       <div className='titulos'>
+                                            IMAGEN DESCRIPTIVA:
+                                       </div>
+                                       <div>
+                                            <img className='urlDesign' src={`https://api.arasaac.org/api/pictograms/${pictogram.pictogramId}`}/>
+                                       </div>
                                     </div>
                                 )
                             }
@@ -133,6 +150,7 @@ console.log(userRDX, 'esto es userData')
                     }
                 </div>
             </div>
+        </div>
         </>
     )
 }

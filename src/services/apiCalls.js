@@ -69,7 +69,7 @@ export const postNewFavorite = async (body, token) => {
         headers: { Authorization: `Bearer ${token}` }
         
     };
-    return await axios.post(`${root}favorites/`, body, config);
+    return await axios.post(`${root}favorites`, body, config);
 }
 export const userFavorites = async (token) => {
     let config = {
@@ -77,12 +77,12 @@ export const userFavorites = async (token) => {
     }
     return await axios.get(`${root}favorites`, config)
 }
-export const getAllFavorites = async (token) => {
+export const getAllFavoritesUser = async (token, type) => {
     let config = {
         //este sería mi endpoint del backend
        headers: { 
            'Authorization': `Bearer ${token}`
          }
    }
-    return await axios.get(`${root}/getAll`,config);
+    return await axios.get(`${root}favorites?type=${type}`,config);
 }

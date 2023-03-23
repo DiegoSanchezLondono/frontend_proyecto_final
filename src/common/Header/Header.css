@@ -31,7 +31,7 @@
     color: rgb(0, 0, 0);
     cursor: pointer;
 
-    display: flex;
+    display: grid;
     justify-content: center;
     align-items: center;
 
@@ -42,14 +42,25 @@
 .homeAvatar {
     height: 15vh;
     width: 30vh;
+    position: relative;
+}
+.inputDesign {
+
+    text-align: center;
+    border-radius: 8em;
+
 }
 
+.inputDesignError {
+    border: 0.2em solid red;
+}
 .headerLinksDesign {
 
     height: 15vh;
     width: 30vw;
 
     display: flex;
+    font-size: 18px;
     flex-direction: row;
     justify-content: flex-end;
     align-items: flex-end;
@@ -66,4 +77,255 @@
 
     margin-bottom: 0.5em;
     margin-right: 3em;
+}
+
+@media only screen and (max-width: 1201px) {
+    .headerDesign{
+
+        font-size: smaller;
+        text-align: center;
+        word-wrap: break-word;
+        display: flex;
+ 
+    }
+}
+
+@media only screen and (max-width: 820px) {
+    .headerDesign{
+
+        display: flex;
+
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .headerDesign{
+
+        display: flex;
+   
+    }
+}
+
+@media only screen and (max-width: 668px) {
+    .headerDesign{
+
+        display: flex;
+
+    }
+}
+
+@media only screen and (max-width: 560px) {
+    .headerDesign{
+  
+        display: flex;
+
+    }
+}
+
+@media only screen and (max-width: 243px) {
+    .headerDesign {
+
+        display: flex;
+
+    }
+}
+@media only screen and (max-width: 1100px) {
+    .searchDesign{
+
+        color: rgb(0, 0, 0);
+        display: grid;
+        cursor: pointer;
+        justify-content: center;
+        align-items: center;
+        background-color: #ffffff;
+ 
+    }
+}
+
+@media only screen and (max-width: 820px) {
+    .searchDesign{
+
+        color: rgb(0, 0, 0);
+        display: grid;
+        cursor: pointer;
+        justify-content: center;
+        align-items: center;
+        background-color: #ffffff;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .searchDesign{
+
+        color: rgb(0, 0, 0);
+        display: grid;
+        cursor: pointer;
+        justify-content: center;
+        align-items: center;
+        background-color: #ffffff;
+   
+    }
+}
+
+@media only screen and (max-width: 668px) {
+    .searchDesign{
+
+        color: rgb(0, 0, 0);
+        display: grid;
+        cursor: pointer;
+        justify-content: center;
+        align-items: center;
+        background-color: #ffffff;
+
+    }
+}
+
+@media only screen and (max-width: 560px) {
+    .searchDesign{
+
+        color: rgb(0, 0, 0);
+        display: grid;
+        cursor: pointer;
+        justify-content: center;
+        align-items: center;
+        background-color: #ffffff;
+
+    }
+}
+
+@media only screen and (max-width: 243px) {
+    .searchDesign {
+
+        color: rgb(0, 0, 0);
+        display: grid;
+        cursor: pointer;
+        justify-content: center;
+        align-items: center;
+        background-color: #ffffff;
+
+    }
+}
+@media only screen and (max-width: 1450px) {
+    .inputDesign{
+
+        font-size: smaller;
+        text-align: center;
+        word-wrap: break-word;
+        display: flex;
+ 
+    }
+}
+
+@media only screen and (max-width: 1201px) {
+    .inputDesign{
+
+        font-size: smaller;
+        text-align: center;
+        word-wrap: break-word;
+        display: flex;
+ 
+    }
+}
+
+@media only screen and (max-width: 820px) {
+    .inputDesign{
+
+        display: flex;
+        
+
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .inputDesign{
+
+        display: grid;
+        
+    }
+}
+
+@media only screen and (max-width: 668px) {
+    .inputDesign{
+
+        display: grid;
+        
+    }
+}
+
+@media only screen and (max-width: 560px) {
+    .inputDesign{
+  
+        display: grid;
+        
+    }
+}
+
+@media only screen and (max-width: 243px) {
+    .inputDesign {
+
+        display: grid;
+        
+    }
+}
+
+@media only screen and (max-width: 1450px) {
+    .headerLinksDesign{
+
+        font-size: smaller;
+        text-align: center;
+        word-wrap: break-word;
+        display: flex;
+ 
+    }
+}
+
+@media only screen and (max-width: 1201px) {
+    .headerLinksDesign{
+
+        font-size: smaller;
+        text-align: center;
+        word-wrap: break-word;
+        display: flex;
+ 
+    }
+}
+
+@media only screen and (max-width: 820px) {
+    .headerLinksDesign{
+
+        display: flex;
+
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .headerLinksDesign{
+
+        display: grid;
+   
+    }
+}
+
+@media only screen and (max-width: 668px) {
+    .headerLinksDesign{
+
+        display: grid;
+
+    }
+}
+
+@media only screen and (max-width: 560px) {
+    .headerLinksDesign{
+  
+        display: grid;
+
+    }
+}
+
+@media only screen and (max-width: 243px) {
+    .headerLinksDesign {
+
+        display: grid;
+
+    }
 }

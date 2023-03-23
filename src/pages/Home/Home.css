@@ -5,7 +5,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
+    margin-top: -120px;
     height: 65vh;
     width: 100vw;
 
@@ -18,13 +18,28 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 50px;
-
+    margin-top: -250px;
     height: 110vh;
     width: 100vw;
 
     background-color: #76c1e6;
 
+}
+@media only screen and (max-width: 1540px) {
+    .homeDesign2{
+        margin-top: -70px;
+    }
+}
+@media only screen and (max-width: 1201px) {
+    .homeDesign2{
+        margin-top: 20px;
+    }
+}
+
+@media only screen and (max-width: 820px) {
+    .homeDesign2{
+        margin-top: 20px;
+    }
 }
 @media only screen and (max-width: 768px) {
     .homeDesign2{
@@ -33,12 +48,50 @@
 }
 @media only screen and (max-width: 658px) {
     .homeDesign2{
-        margin-top: 580px;
+        margin-top: 600px;
     }
 }
 @media only screen and (max-width: 568px) {
     .homeDesign2{
-        margin-top: 3060px;
+        margin-top: 3090px;
+    }
+}
+
+@media only screen and (max-width: 1540px) {
+    .homeDesign{
+        margin-top: -80px;
+    }
+}
+
+@media only screen and (max-width: 1510px) {
+    .homeDesign{
+        margin-top: 20px;
+    }
+}
+@media only screen and (max-width: 1240px) {
+    .homeDesign{
+        margin-top: 40px;
+    }
+}
+
+@media only screen and (max-width: 820px) {
+    .homeDesign{
+        margin-top: 20px;
+    }
+}
+@media only screen and (max-width: 768px) {
+    .homeDesign{
+        margin-top: 20px;
+    }
+}
+@media only screen and (max-width: 658px) {
+    .homeDesign{
+        margin-top: 20px;
+    }
+}
+@media only screen and (max-width: 568px) {
+    .homeDesign{
+        margin-top: 20px;
     }
 }
 
