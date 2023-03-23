@@ -29,7 +29,7 @@
 ## VISTA DE LOGIN ##
 ![image](https://user-images.githubusercontent.com/116036050/227289816-cb63479e-f035-47be-a7a2-a88ac93558e4.png)
 
-- En esta vista accedemos a todas los videos y pictogramas asi teniendo la posibilidad de añadirlos a favoritos.
+- En esta vista accedemos a nuestro perfil.
 ## VISTA DE PERFIL DE USUARIO ##
 ![image](https://user-images.githubusercontent.com/116036050/227291551-1645517a-870c-4512-9590-5f747d16b63f.png)
 
@@ -37,7 +37,7 @@
 ## VISTA DEL ADMINISTRADOR ##
 ![image](https://user-images.githubusercontent.com/116036050/227292118-d8b87dd7-1d97-480b-b2c9-2128627cc456.png)
 
-- Esta vista la podra ver UNICAMENTE el administrador, aqui apareceran todas los videos y pictogramas añadidos a favoritos.
+- Esta vista la podra ver UNICAMENTE el administrador, aqui apareceran los datos de todo los usuarios registrados.
 ## VISTA DETALLE VIDEO ##
 ![image](https://user-images.githubusercontent.com/116036050/227293548-9dc2f845-331d-4410-ad59-d1de6c3a3b8a.png)
 
