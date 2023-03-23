@@ -51,7 +51,41 @@ http://localhost:5500/users
 - router.delete("/",auth, isAdmin, UsersController.deleteUser); Con este Endpoint el usuario (Admin) tendrá la posibilidad de eliminar algun usuario que no cumpla con la politica de la App.
 http://localhost:5500/users
 
+###### Con este Endpoint el usuario (Admin )podrá agregar videos ######
+- router.post("/register",auth, isAdmin, VideosController.newVideo);  Con este Endpoint el usuario (Admin) tendrá la posibilidad de agregar videos a la app.
+http://localhost:5500/videos/register
 
+###### Con este Endpoint los usuarios podrán ver todos los videos ######
+- router.get("/", VideosController.getAllVideos); Con este Endpoint los usuarios tendrá la posibilidad de ver todos los videos que esten agregados actualmente en la app.
+http://localhost:5500/videos
+
+###### Con este Endpoint el usuario (Admin) podrá eliminar videos ######
+- router.delete("/",auth, isAdmin, VideosController.deleteVideo); Con este Endpoint el usuario (Admin) tendrá la posibilidad de eliminar algun video, por que ha salido uno nuevo o simplemente tiene mejor resolucion.
+http://localhost:5500/videos
+
+###### Con este Endpoint el usuario (Admin) podrá crear pictogramas de su autoria ######
+- router.post("/register",auth, isAdmin, PictogramsController.newPictogram);  Con este Endpoint el usuario (Admin) tendrá la posibilidad de crear pictogramas de autoria propia.
+http://localhost:5500/pictograms/register
+
+###### Con este Endpoint los usuarios podrán ver todos los pictogramas guardados en la BD ######
+- router.get("/",auth, PictogramsController.getAllPictograms);  Con este Endpoint los usuarios tendrán la posibilidad de ver todos los pictogramas.
+http://localhost:5500/pictograms
+
+###### Con este Endpoint los usuarios podrán ver todos los pictogramas ######
+- router.post("/data_id",auth, PictogramsController.postPictogramById);  Con este Endpoint los usuarios tendrán la posibilidad de ver todos los pictogramas traidos desde la api de arasaac.
+http://localhost:5500/pictograms
+
+###### Con este Endpoint los usuarios podrán agregar a favoritos ######
+- router.post("/", auth, FavoritesController.newFavorite);  Con este Endpoint los usuarios tendrán la posibilidad de agregar tanto videos como pictogramas a favoritos para asi tenerlos detallados en su perfil de usuario.
+http://localhost:5500/favorites
+
+###### Con este Endpoint los usuarios podrán ver todos sus videos favoritos ######
+- router.get("/", auth, FavoritesController.getAllFavoritesUser);  Con este Endpoint los usuarios tendrán la posibilidad ver sus videos favoritos.
+http://localhost:5500/favorites?type=video
+
+###### Con este Endpoint los usuarios podrán ver todos sus pictogramas favoritos ######
+- router.get("/", auth, FavoritesController.getAllFavoritesUser);  Con este Endpoint los usuarios tendrán la posibilidad ver sus pictogramas favoritos.
+http://localhost:5500/favorites?type=pictogram
 
 
 ## OBJETIVO ##
