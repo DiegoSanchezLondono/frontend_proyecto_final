@@ -91,7 +91,7 @@ export const PictogramDetail = () => {
     const detailRdx = useSelector(pictogramData);
     const detailUsr = useSelector(userData);
     const navigate = useNavigate();
-console.log(detailRdx, 'lo que tengo de pictograma');
+
     //Hooks
     const [msg, setMsg] = useState('');
 
@@ -100,15 +100,10 @@ console.log(detailRdx, 'lo que tengo de pictograma');
 
         let body = {
 
-            //id del pictograma...
-             idPictogram : detailRdx.choosen._id,
-             idUser : detailUsr.userPass.user._id,
-             keywordPictogram : detailRdx.choosen.keyword,
-             date : new Date()
-             // fecha : dayjs().format('MM/DD/YYYY')
+             pictogramId : detailRdx.P._id,
+             userId : detailUsr.userPass.user._id,
+
         }
-        // console.log(detailUsr.userPass.token);
-        // console.log(detailRdx);
 
         postNewFavorite(body, detailUsr.userPass.token)
             .then(resultado => {

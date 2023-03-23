@@ -30,7 +30,6 @@ export const VideoDetail = () => {
             //id del video...
             videoId : detailRdx.choosen._id,
             userId : detailUsr.userPass.user._id,
-            date : dayjs().format('MM/DD/YYYY'),
         }
 
         postNewFavorite(body, detailUsr.userPass.token)
