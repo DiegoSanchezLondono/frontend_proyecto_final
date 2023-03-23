@@ -18,15 +18,34 @@
 - últimas pinceladas para dejar finiquitado el trabajo, aun queda mucho por mejorar.
 
 ## VISTA HOME ##
+![image](https://user-images.githubusercontent.com/116036050/227289396-4947c7e2-7761-48a0-85f4-1e0e3dbe2601.png)
+![image](https://user-images.githubusercontent.com/116036050/227289563-a3e9b960-d22a-40ba-81c4-2eace0cdfc83.png)
+
 - En esta vista tenemos los videos y pictogramas, tambien contamos con la opcion de iniciar sesión y de registro de nuevos usuarios.
 ## VISTA DE REGISTRO ##
+![image](https://user-images.githubusercontent.com/116036050/227290605-8b0e12f0-c901-470f-9633-9cbabcdc6cb4.png)
+
 - En esta vista tenemos la opcion de registrarnos introduciendo unos datos claves para identificar al usuario, tambien tenemos la opcion de volver a home.
 ## VISTA DE LOGIN ##
+![image](https://user-images.githubusercontent.com/116036050/227289816-cb63479e-f035-47be-a7a2-a88ac93558e4.png)
+
 - En esta vista accedemos a todas los videos y pictogramas asi teniendo la posibilidad de añadirlos a favoritos.
 ## VISTA DE PERFIL DE USUARIO ##
+![image](https://user-images.githubusercontent.com/116036050/227291551-1645517a-870c-4512-9590-5f747d16b63f.png)
+
 - En esta vista el usuario puede ver sus datos y los videos y/o pictogramas que ha añadido a sus favoritos.
 ## VISTA DEL ADMINISTRADOR ##
+![image](https://user-images.githubusercontent.com/116036050/227292118-d8b87dd7-1d97-480b-b2c9-2128627cc456.png)
+
 - Esta vista la podra ver UNICAMENTE el administrador, aqui apareceran todas los videos y pictogramas añadidos a favoritos.
+## VISTA DETALLE VIDEO ##
+![image](https://user-images.githubusercontent.com/116036050/227293548-9dc2f845-331d-4410-ad59-d1de6c3a3b8a.png)
+
+- Esta vista la podran ver todos los usuarios, aqui aparecera el detalle de los videos.
+## VISTA DETALLE PICTOGRAMA ##
+![image](https://user-images.githubusercontent.com/116036050/227294172-cc0d5da7-19e8-445c-977e-7df030129412.png)
+
+- Esta vista la podran ver todos los usuarios, aqui aparecera el detalle de los pictogramas.
 
 
 #### Endpoints de llamadas a la API ####
