@@ -31,11 +31,11 @@
 
 - En esta vista accedemos a nuestro perfil.
 ## VISTA DE PERFIL DE USUARIO ##
-![image](https://user-images.githubusercontent.com/116036050/227291551-1645517a-870c-4512-9590-5f747d16b63f.png)
+![image](https://user-images.githubusercontent.com/116036050/227710584-c0f88c6e-eab2-4503-9b00-1a0418a5094f.png)
 
 - En esta vista el usuario puede ver sus datos y los videos y/o pictogramas que ha añadido a sus favoritos.
 ## VISTA DEL ADMINISTRADOR ##
-![image](https://user-images.githubusercontent.com/116036050/227292118-d8b87dd7-1d97-480b-b2c9-2128627cc456.png)
+![image](https://user-images.githubusercontent.com/116036050/227710516-3bcd16bc-5369-4dca-84aa-f5d62ebc1e91.png)
 
 - Esta vista la podra ver UNICAMENTE el administrador, aqui apareceran los datos de todo los usuarios registrados.
 ## VISTA DETALLE VIDEO ##
